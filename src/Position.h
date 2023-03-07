@@ -17,7 +17,7 @@
  * membre qui permettent de les manipuler
  * 
  */
-class Postion
+class Position
 {
     private:
         int X1;
@@ -32,7 +32,7 @@ class Postion
          * @brief Ce constructeur initialise tout les donnée membres à 0.
          * 
          */
-        Postion();
+        Position();
 //_____________________________________________________________________________
         /**
          * @brief Cette procedure permet de modifier la valeur de la donnée
