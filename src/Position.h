@@ -153,6 +153,14 @@ class Position
          */
         int getRayon();
 
+//_____________________________________________________________________________
+        /**
+         * @brief Cette procédure teste le maximum de fonction membre de la
+         * classe Position.
+         * 
+         */
+        void TestRegression();
+
 };
 //_____________________________________________________________________________
 

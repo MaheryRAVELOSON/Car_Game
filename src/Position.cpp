@@ -95,3 +95,24 @@ int Position::getY2()
 {
     return Y2;
 }
+
+//_____________________________________________________________________________
+void Position::TestRegression()
+{
+    Position * PtrPos= new Position;
+
+
+    PtrPos->setCentreX(5);
+    (* PtrPos).setCentreY(5);
+
+    assert(PtrPos->getCentreX()==5);
+    assert((* PtrPos).getCentreY()==5);
+
+    assert(PtrPos->getX1()==0);
+    assert((* PtrPos).getY1()==0);
+    assert(PtrPos->getX2()==0);
+    assert((* PtrPos).getY2()==0);
+
+
+    delete PtrPos;
+}
