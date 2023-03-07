@@ -75,7 +75,34 @@ class Postion
          * @param n : un int qui contient la nouvelle valeur de Centre.
          */
         void setCentre(int n);
-
+//_____________________________________________________________________________
+        /**
+        * @brief cette fonction erenvoie la valeur de la donnée membre X1
+        * @return X1: entier : la fonction retourne la valeur du donnée membre 
+        * X1
+        */
+        int getX1();
+//_____________________________________________________________________________
+        /**
+        * @brief cette fonction erenvoie la valeur de la donnée membre X2
+        * @return X2: entier : la fonction retourne la valeur du donnée membre 
+        * X2
+        */
+        int getX2();
+//_____________________________________________________________________________
+        /**
+        * @brief cette fonction erenvoie la valeur de la donnée membre Y1
+        * @return Y1: entier : la fonction retourne la valeur du donnée membre 
+        * Y1
+        */
+        int getY1();
+//_____________________________________________________________________________
+        /**
+        * @brief cette fonction erenvoie la valeur de la donnée membre Y2
+        * @return Y2: entier : la fonction retourne la valeur du donnée membre 
+        * Y2
+        */
+        int getY2();
 
 };
 //_____________________________________________________________________________
