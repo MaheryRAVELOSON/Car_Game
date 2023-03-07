@@ -26,6 +26,7 @@ class Position
         int Y2;
         int CentreX;
         int CentreY;
+        int Rayon; //distance entre un pair de XY et le centre
     public:
 //_____________________________________________________________________________
         /**
@@ -33,6 +34,16 @@ class Position
          * 
          */
         Position();
+
+//_____________________________________________________________________________
+        /**
+         * @brief Cette procedure permet de modifier la valeur de la donnée
+         * membre Rayon
+         * 
+         * @param n : un int qui contient la nouvelle valeur de Rayon.
+         */
+        void setRayon(int n);
+
 //_____________________________________________________________________________
         /**
          * @brief Cette procedure permet de modifier la valeur de la donnée
@@ -132,6 +143,15 @@ class Position
          * membre CentreY
          */
         int getCentreY();
+
+//_____________________________________________________________________________
+        /**
+         * @brief cette fonction renvoie la valeur de la donnée membre Rayon
+         * 
+         * @return Rayon: entier : la fonction retourne la valeur du donnée
+         * membre Rayon
+         */
+        int getRayon();
 
 };
 //_____________________________________________________________________________
