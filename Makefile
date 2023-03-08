@@ -1,10 +1,13 @@
 MAIN= src/Main
 POSITION= src/Position
 SCORE= src/Score
+JEU= src/Jeu
+
 
 POSITION_O = obj/Position.o
 MAIN_O = obj/Main.o
 SCORE_O = obj/Score.o
+JEU_O = obj/Jeu.o
 
 
 MAIN_OUT = bin/Main
@@ -15,8 +18,8 @@ PETIT_L = -lSDL2 -lSDL2_ttf -lSDL2_image
 
 all: $(MAIN_OUT)
 
-$(MAIN_OUT): $(MAIN_O) $(POSITION_O) $(SCORE_O)
-	g++ -g $(MAIN_O) $(POSITION_O) $(SCORE_O) -o $(MAIN_OUT) $(PETIT_L)
+$(MAIN_OUT): $(MAIN_O) $(POSITION_O) $(SCORE_O) $(JEU_O)
+	g++ -g $(MAIN_O) $(POSITION_O) $(SCORE_O) $(JEU_O) -o $(MAIN_OUT) $(PETIT_L)
 
 
 $(MAIN_O): $(POSITION).h $(MAIN).cpp
@@ -27,6 +30,9 @@ $(POSITION_O): $(POSITION).h $(POSITION).cpp
 
 $(SCORE_O): $(SCORE).h $(SCORE).cpp
 	g++ -g -Wall -c $(INCLUDE_DIR_SDL) $(SCORE).cpp -o $(SCORE_O)
+
+$(JEU_O): $(JEU).h $(JEU).cpp
+	g++ -g -Wall -c $(INCLUDE_DIR_SDL) $(JEU).cpp -o $(JEU_O)
 
 clean:
 	rm bin/* obj/*

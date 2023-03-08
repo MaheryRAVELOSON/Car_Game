@@ -1,5 +1,6 @@
 #include "Position.h"
-#include "Score.h"
+#include "Score.h"  
+#include "Jeu.h"   
  
 int main (int argc, char** argv)
 {
@@ -9,6 +10,9 @@ int main (int argc, char** argv)
 
    Score ScoreJ;
    ScoreJ.TestRegression();
+   
+   Jeu JeuJ;
+   JeuJ.TestRegression();
  
    return 0;
 }

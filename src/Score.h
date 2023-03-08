@@ -1,7 +1,7 @@
 /**
- * @file Score.cpp
+ * @file Score.h
  * @author P2207683 P2003422
- * @brief Cette fichier contient l'entête de la classe Score
+ * @brief Ce fichier contient l'entête de la classe Score
  * @version 0.1
  * @date 2023-03-08
  * 
@@ -12,7 +12,7 @@
 #define SCORE_H
 
 /**
- * @brief La classe Score ne contient qu'un seul donnée membre publique "score"
+ * @brief La classe Score ne contient qu'une seule donnée membre publique "score"
  * qui est un entier qui contiendra le temps écoulé en seconde depuis le
  * lancement du jeu.
  * 
