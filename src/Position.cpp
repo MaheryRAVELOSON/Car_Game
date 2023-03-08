@@ -97,6 +97,25 @@ int Position::getY2()
 }
 
 //_____________________________________________________________________________
+int Position::getCentreX()
+{
+    return CentreX;
+}
+
+//_____________________________________________________________________________
+int Position::getCentreY()
+{
+    return CentreY;
+}
+
+
+//_____________________________________________________________________________
+int Position::getRayon()
+{
+    return Rayon;
+}
+
+//_____________________________________________________________________________
 void Position::TestRegression()
 {
     Position * PtrPos= new Position;
@@ -112,6 +131,9 @@ void Position::TestRegression()
     assert((* PtrPos).getY1()==0);
     assert(PtrPos->getX2()==0);
     assert((* PtrPos).getY2()==0);
+    assert(PtrPos->getRayon()==0);
+
+    cout<<endl<<endl<<"--Test de Regression 'Position' terminée--"<<endl<<endl;
 
 
     delete PtrPos;
