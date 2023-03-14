@@ -136,11 +136,13 @@ void Position::TestRegression()
     assert(PtrPos->getCentreX()==5);
     assert((* PtrPos).getCentreY()==5);
 
+    PtrPos->setRayon(5);
+
     assert(PtrPos->getX1()==0);
     assert((* PtrPos).getY1()==0);
-    assert(PtrPos->getX2()==0);
-    assert((* PtrPos).getY2()==0);
-    assert(PtrPos->getRayon()==0);
+    assert(PtrPos->getX2()==10);
+    assert((* PtrPos).getY2()==10);
+    assert(PtrPos->getRayon()==5);
 
     cout<<endl<<endl<<"--Test de Regression 'Position' terminée--"<<endl<<endl;
 

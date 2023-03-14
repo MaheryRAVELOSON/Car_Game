@@ -10,17 +10,19 @@
  */
 #ifndef JEU_H
 #define Jeu_H
+#include "Voiture.h"
 
 /**
  * @brief La classe Jeu va mettre en relation toutes les classes nécessaires 
  * pour le jeu. 
  * Il contient une donnée membre TailleX et TailleY qui correspondent à la 
- * taille de l'écran de l'affichage .
+ * taille de l'écran de l'affichage , et une variable de type classe Voiture.
  */
 class Jeu
 {
     public:
-        int TailleX, TailleY;
+        int TailleX, TailleY, Niveau;
+        Voiture * Ptr_Voiture;
 
 //_____________________________________________________________________________
         /**
@@ -28,6 +30,13 @@ class Jeu
          * "TailleY" à 400;
          */
         Jeu();
+
+//_____________________________________________________________________________
+        /**
+         * @brief Ce déstructeur Ddésalloue les allocations alloués par la
+         *  donnée membre "Ptr_Voiture"
+         */
+        ~Jeu();        
 
 
 //_____________________________________________________________________________
