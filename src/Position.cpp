@@ -21,14 +21,6 @@ Position::Position()
 
 //_____________________________________________________________________________
 
-void Position::setRayon(int n)
-{ 
-    Rayon=n;
-
-}
-
-//_____________________________________________________________________________
-
 void Position::setX1(int n)
 { 
     X1=n;
@@ -64,12 +56,29 @@ void Position::setY2(int n)
 void Position::setCentreX(int n)
 {
     CentreX=n;
+    X1= CentreX - Rayon;
+    X2= CentreX + Rayon;
 }
 
 //_____________________________________________________________________________
 void Position::setCentreY(int n)
 {
     CentreY = n;
+    Y1= CentreY - Rayon;
+    Y2= CentreY + Rayon;
+}
+
+
+//_____________________________________________________________________________
+
+void Position::setRayon(int n)
+{ 
+    Rayon=n;
+    X1= CentreX - Rayon;
+    X2= CentreX + Rayon;
+    Y1= CentreY - Rayon;
+    Y2= CentreY + Rayon;
+
 }
 
 //_____________________________________________________________________________
