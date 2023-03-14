@@ -39,6 +39,28 @@ void Jeu::TestRegression()
     PtrJeu->Ptr_Voiture->Voiture_Position->getRayon()- 
     PtrJeu->Ptr_Voiture->Deplacement);
     
+
+    PtrJeu->Ptr_Voiture->Deplacer_Droite(PtrJeu->TailleX);
+    assert(PtrJeu->Ptr_Voiture->Voiture_Position->getX2()==(PtrJeu->TailleX)/2 + 
+    PtrJeu->Ptr_Voiture->Voiture_Position->getRayon());
+
+    
+    PtrJeu->Ptr_Voiture->Deplacer_Bas(2, PtrJeu->TailleY);
+    assert(PtrJeu->Ptr_Voiture->Voiture_Position->getY2()==PtrJeu->TailleY);
+
+
+    PtrJeu->Ptr_Voiture->Deplacer_Haut(2);
+    assert(PtrJeu->Ptr_Voiture->Voiture_Position->getY1()==PtrJeu->TailleY-
+    (PtrJeu->Ptr_Voiture->Voiture_Position->getRayon()*2+PtrJeu
+    ->Ptr_Voiture->Deplacement  ));
+
+
+    PtrJeu->Ptr_Voiture->Deplacer_Bas(2, PtrJeu->TailleY);
+    assert(PtrJeu->Ptr_Voiture->Voiture_Position->getY1()==PtrJeu->TailleY-
+    (PtrJeu->Ptr_Voiture->Voiture_Position->getRayon()*2));
+
+
+
     cout<<endl<<endl<<"--Test de Regression 'Jeu' terminée--"<<endl<<endl;
 
 
