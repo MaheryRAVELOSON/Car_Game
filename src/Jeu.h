@@ -11,6 +11,8 @@
 #ifndef JEU_H
 #define Jeu_H
 #include "Voiture.h"
+#include "Score.h"
+#include "Sdl.h"
 
 /**
  * @brief La classe Jeu va mettre en relation toutes les classes nécessaires 
@@ -23,6 +25,9 @@ class Jeu
     public:
         int TailleX, TailleY, Niveau;
         Voiture * Ptr_Voiture;
+        Score * Score_Joueur;
+        Sdl S_D_L;
+        
 
 //_____________________________________________________________________________
         /**

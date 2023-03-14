@@ -1,5 +1,4 @@
-#include "Position.h"
-#include "Score.h"  
+#include "Position.h" 
 #include "Jeu.h"   
  
 int main (int argc, char** argv)

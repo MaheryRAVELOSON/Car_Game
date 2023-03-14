@@ -9,10 +9,16 @@ using namespace std;
 //_____________________________________________________________________________
 Jeu::Jeu()
 {
-    TailleX= 400;
-    TailleY= 400;
+    TailleX= 600;
+    TailleY= 800;
     Niveau = 1;
     Ptr_Voiture= new Voiture(TailleX,TailleY);
+    Score_Joueur= new Score;
+    S_D_L.Voiture_Joeur_Sdl= Ptr_Voiture;
+    S_D_L.TailleEcran_X_sdl= TailleX;
+    S_D_L.TailleEcran_Y_sdl= TailleY;
+    S_D_L.Niveau_Sdl= &Niveau;
+
 }
 
 
@@ -20,6 +26,7 @@ Jeu::Jeu()
 Jeu::~Jeu()
 {
     delete  Ptr_Voiture;
+    delete Score_Joueur;
 }
 
 
@@ -29,7 +36,7 @@ void Jeu::TestRegression()
     Jeu * PtrJeu= new Jeu;
 
 
-    assert(PtrJeu->TailleX==400);
+    assert(PtrJeu->TailleX==600);
 
     (* PtrJeu).TailleY=400;
     assert((* PtrJeu).TailleY==400);
@@ -61,7 +68,7 @@ void Jeu::TestRegression()
 
 
 
-    cout<<endl<<endl<<"--Test de Regression 'Jeu' terminée--"<<endl<<endl;
+    cout<<endl<<endl<<"--Test de Regression 'Jeu' et 'Voiture' terminée--"<<endl<<endl;
 
 
     delete PtrJeu;
