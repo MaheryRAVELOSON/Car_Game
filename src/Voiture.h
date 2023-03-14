@@ -35,13 +35,13 @@ class Voiture
          * rapport au taille de l'écran
          * 
          * @param TailleEcranX: un entier qui correspond au largeur de l'écran
-         * @param TailleExranY: un entier qui correspond au longueur de l'écran
+         * @param TailleEcranY: un entier qui correspond au longueur de l'écran
          */
-        Voiture(int TailleEcranX, int TailleExranY);
+        Voiture(int TailleEcranX, int TailleEcranY); 
 
 //_____________________________________________________________________________
         /**
-         * @brief Ce déstructeur désaloue tous les allocations des données
+         * @brief Ce déssructeur désaloue tous les allocations des données
          * membres dans le tas.
          * 
          */
@@ -69,8 +69,26 @@ class Voiture
          * @brief Cette fonction permet de déplacer la voiture vers le haut. Il
          * ne sera disponible que quand le joueur arrive au niveau 2.
          * 
+         * @param Niveau: un entier qui correspond au niveau actuel du joueur
          */
-        void Deplacer_Haut();
+        void Deplacer_Haut(int Niveau);
+
+
+//_____________________________________________________________________________        
+       /**
+         * @brief Cette fonction permet de déplacer la voiture vers le bas. Il
+         * ne sera disponible que quand le joueur arrive au niveau 2.
+         * 
+         * @param Niveau: un entier qui correspond au niveau actuel du joueur
+         * @param TailleEcranY: un entier qui correspond à la hauteur de la
+         * fenétre 
+         */
+        void Deplacer_Bas(int Niveau , int TailleEcranY);
+
+
+
+
+};
 
 
 

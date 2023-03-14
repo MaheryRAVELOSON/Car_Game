@@ -7,7 +7,7 @@
 using namespace std;
 
 //_____________________________________________________________________________
-Voiture::Voiture(int TailleEcranX, int TailleExranY)
+Voiture::Voiture(int TailleEcranX, int TailleEcranY)
 {
     
     Voiture_Position= new Position;
@@ -18,11 +18,11 @@ Voiture::Voiture(int TailleEcranX, int TailleExranY)
     "Pourcent"%*2 de la largeur de l'écran" */
 
     Pourcent= 5;
-    Deplacement= Pourcent*TailleExranX/100;
+    Deplacement= Pourcent*TailleEcranX/100;
     /*La voiture se déplace de "Pourcent"% à chaque fois*/
 
     Voiture_Position->setCentreX(TailleEcranX/2);
-    Voiture_Position->setCentreY(TailleExranY-R);
+    Voiture_Position->setCentreY(TailleEcranY-R);
     /*On itialise la position de la voiture Toute en bas au centre de la
     fenetre*/
 }
@@ -38,7 +38,7 @@ Voiture::~Voiture()
 //_____________________________________________________________________________
 void Voiture::Deplacer_Gauche()
 {
-    (* Voiture_Position).setCentreX(Voiture_Position->getCentreX-
+    (* Voiture_Position).setCentreX(Voiture_Position->getCentreX()-
     Deplacement);
     /*le setCentreX modifie automatiquement le X1 et X2*/
 
@@ -51,12 +51,50 @@ void Voiture::Deplacer_Gauche()
 //_____________________________________________________________________________
 void Voiture::Deplacer_Droite(int TailleEcranX)
 {
-    (* Voiture_Position).setCentreX(Voiture_Position->getCentreX-
+    (* Voiture_Position).setCentreX(Voiture_Position->getCentreX()+
     Deplacement);
     /*le setCentreX modifie automatiquement le X1 et X2*/
 
-    if (Voiture_Position->getX1()> TailleEcranX)
+    if (Voiture_Position->getX2()> TailleEcranX)
     {
         Voiture_Position->setCentreX(TailleEcranX - Voiture_Position->getRayon());
     }
+}
+
+
+//_____________________________________________________________________________
+void Voiture::Deplacer_Haut(int Niveau)
+{
+    if (Niveau == 2)
+    {
+        (* Voiture_Position).setCentreY(Voiture_Position->getCentreY()-
+        Deplacement);
+        /*le setCentreY modifie automatiquement le Y1 et Y2*/
+        
+        if (Voiture_Position->getY1()<0)
+        {
+            Voiture_Position->setCentreY(Voiture_Position->getRayon());
+        }
+
+    }
+
+}
+
+
+//_____________________________________________________________________________
+void Voiture::Deplacer_Bas(int Niveau , int TailleEcranY)
+{
+    if (Niveau == 2)
+    {
+        (* Voiture_Position).setCentreY(Voiture_Position->getCentreY()+
+        Deplacement);
+        /*le setCentreY modifie automatiquement le Y1 et Y2*/
+        
+        if (Voiture_Position->getY2()>TailleEcranY)
+        {
+            Voiture_Position->setCentreY(TailleEcranY - Voiture_Position->getRayon());
+        }
+
+    }
+
 }
