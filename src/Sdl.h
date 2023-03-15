@@ -34,6 +34,14 @@ class Sdl
         int TailleEcran_X_sdl, TailleEcran_Y_sdl;
         int * Niveau_Sdl;
 
+//_____________________________________________________________________________
+        /**
+         * @brief Ce destructeur pointe toute les pointeur donnée membre sur
+         * nullptr
+         * 
+         */
+        ~Sdl();
+
 //_____________________________________________________________________________________
         /**
          * @brief Cette procedure permet d'initialiser les bibliothèque de
@@ -91,14 +99,6 @@ class Sdl
          * désallocation necessaire fait par les variables SDL
          */
         void afficher();
-
-//_____________________________________________________________________________
-        /**
-         * @brief Ce destructeur pointe toute les pointeur donnée membre sur
-         * nullptr
-         * 
-         */
-        ~Sdl();
 };
 
 
