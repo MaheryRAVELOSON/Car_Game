@@ -7,10 +7,10 @@
 using namespace std;
 
 //_____________________________________________________________________________
-Jeu::Jeu()
+Jeu::Jeu(int X, int Y)
 {
-    TailleX= 600;
-    TailleY= 800;
+    TailleX= X;
+    TailleY= Y;
     Niveau = 1;
     Ptr_Voiture= new Voiture(TailleX,TailleY);
     Score_Joueur= new Score;

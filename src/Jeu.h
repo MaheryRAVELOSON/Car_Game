@@ -32,9 +32,10 @@ class Jeu
 //_____________________________________________________________________________
         /**
          * @brief Ce constructeur initialise les données membres "TailleX" & 
-         * "TailleY" à 400;
+         * "TailleY" par défaut à 600*800 si on ne donne pas de paramettre
+         * lors de son appelle;
          */
-        Jeu();
+        Jeu(int X=600, int Y=800);
 
 //_____________________________________________________________________________
         /**
