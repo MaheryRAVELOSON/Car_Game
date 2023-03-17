@@ -135,7 +135,7 @@ void Sdl::afficher()
 {
     SDL_Window* fenetre = nullptr;
     SDL_Renderer* Rendu = nullptr;
-    SdlConstructor(fenetre, Rendu);
+    SdlConstructor(fenetre, Rendu); 
     afficherBoucle(fenetre, Rendu);
     SdlDestuctor(fenetre, Rendu);
 }

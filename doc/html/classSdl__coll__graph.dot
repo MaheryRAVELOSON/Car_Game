@@ -1,0 +1,11 @@
+digraph "Sdl"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Sdl",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Cette classe s'occupe de l'affiche de la voiture, des obstacle et du score. Il a donc trois donné mem..."];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Voiture_Joeur_Sdl" ,fontname="Helvetica"];
+  Node2 [label="Voiture",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classVoiture.html",tooltip="La classe voiture contient un donnée membre Position et un donnée membre Deplacement qui est une vari..."];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Voiture_Position" ,fontname="Helvetica"];
+  Node3 [label="Position",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPosition.html",tooltip="Cette classe contient les coordoné d'une position et les fonctions membre qui permettent de les manip..."];
+}

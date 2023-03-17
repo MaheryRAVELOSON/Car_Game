@@ -78,3 +78,12 @@ v_s:
 
 v_tx:
 	valgrind $(MAIN_TXT_OUT)
+
+doxy:
+	doxygen -g ./doc/CarGame.doxy
+
+maj:
+	doxygen ./doc/CarGame.doxy
+
+
+
