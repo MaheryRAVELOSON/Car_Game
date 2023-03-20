@@ -13,6 +13,7 @@
 
 #include <SDL.h>
 #include "Voiture.h"
+#include "Obstacle.h"
 #include <stdlib.h>     /* abs */
 #include <iostream>
 #include <cassert>
@@ -33,6 +34,7 @@ class Sdl
         Voiture * Voiture_Joeur_Sdl;
         int TailleEcran_X_sdl, TailleEcran_Y_sdl;
         int * Niveau_Sdl;
+        Obstacle * ObstacleSdl;
 
 //_____________________________________________________________________________
         /**

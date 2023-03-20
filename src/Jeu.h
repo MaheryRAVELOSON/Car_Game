@@ -13,6 +13,7 @@
 #include "Voiture.h"
 #include "Score.h"
 #include "Sdl.h"
+#include "Obstacle.h"
 
 /**
  * @brief La classe Jeu va mettre en relation toutes les classes nécessaires 
@@ -27,6 +28,7 @@ class Jeu
         Voiture * Ptr_Voiture;
         Score * Score_Joueur;
         Sdl S_D_L;
+        Obstacle Obs;
         
 
 //_____________________________________________________________________________

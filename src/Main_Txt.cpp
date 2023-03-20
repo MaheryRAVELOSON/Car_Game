@@ -12,6 +12,7 @@ void txtAff(WinTXT & win, const Jeu & jeu)
     jeu.Ptr_Voiture->Voiture_Position->getCentreY(),'P');
 
     // Affichage des obstacles
+	
 
 	win.draw();
 }
@@ -34,6 +35,7 @@ void txtBoucle (Jeu & jeu) {
         #endif // WIN32
 
         //fonction qui fait bouger les obstacles
+		
 
 		c = win.getCh();
 		switch (c) {

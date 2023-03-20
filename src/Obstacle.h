@@ -17,6 +17,7 @@
 #include <math.h>
 
 #include "Position.h"
+#include "Score.h"
 
 using namespace std;
 
@@ -35,6 +36,17 @@ using namespace std;
  * classe Voiture de la classe Jeu.
  * \n Un pointeur d'entier "Score_Obstacle" qui pointera vers le donnée
  * membres "Score_Joueur" de la classe Jeu.
+ * \n Un entier "TailleTab_Obstacle" qui va stocker
+ * la taille du tableau qu'on alloue.
+ * \n un bool "passage_possible" qui passe sur true si, une fois qu'un obstacle
+ * est créer, la voiture a assez de couloir pour l'éviter
+ * \n Un pointeur d'entier "Deplacement_Obstacle" qui pointera vers le donnée
+ * membres "Deplacement" de la donné mebre Voiture de la classe Jeu.
+ * \n Un pointeur d'entier "TailleEcranY_Obstacle" qui pointera vers le donnée
+ * membres "TailleY" de la classe Jeu.
+ * 
+ * \n !!!!REMARQUE!!!! Dans la classe Obstacle, on ne manipule plus CentreX, Y
+    et le Rayon de la Position mais directement les X et Y avec leur set et get
  * 
  */
 class Obstacle
@@ -44,8 +56,12 @@ class Obstacle
         int * Niveau_Obstacle;
         int * TailleEcranX_Obstacle;
         int * Distance_Obstacle;
-        int * Score_Obstacle;
+        Score * Score_Obstacle;
         int TailleTab_Obstacle;
+        bool passage_possible;
+        int * Deplacement_Obstacle;
+        int * TailleEcranY_Obstacle;
+        int RayonVoiture;
 
 //_____________________________________________________________________________
         /**
@@ -61,16 +77,26 @@ class Obstacle
         Obstacle(int TailleTab=20);
 
 //_____________________________________________________________________________
+        /**
+         * @brief cette procédure crée des coordonnée pour chaque case du tableau
+         * d'obstacle.
+         * 
+         */
         void Init_Obstacle();
 
 //_____________________________________________________________________________
+        /**
+         * @brief Ce procédure bouge toute les obstacle verticalement vers le
+         * bas
+         * 
+         */
         void Mouv_Obs_Verticale();
 
 //_____________________________________________________________________________
         void Verif_Apparition();
 
 //_____________________________________________________________________________
-        void TestRegression();
+        //void TestRegression();
 
 //_____________________________________________________________________________
         /**

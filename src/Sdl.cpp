@@ -69,6 +69,19 @@ void Sdl::MAJ_SDL(SDL_Window* &fenetre, SDL_Renderer* &Rendu)
     // définition de la couleur du pt
 
     SDL_RenderFillRect(Rendu, &VarRect);
+
+    for (int i=0; i<ObstacleSdl->TailleTab_Obstacle; i++)
+    {
+        SDL_Rect VarRect;
+        VarRect.w= ObstacleSdl->Tab_Obstacle[i].getX2() - ObstacleSdl->Tab_Obstacle[i].getX1();
+        VarRect.h= ObstacleSdl->Tab_Obstacle[i].getY2() - ObstacleSdl->Tab_Obstacle[i].getY1();
+        VarRect.x= ObstacleSdl->Tab_Obstacle[i].getX1();
+        VarRect.y= ObstacleSdl->Tab_Obstacle[i].getY1();
+
+        SDL_SetRenderDrawColor(Rendu, 255, 255, 255, 255);
+
+        SDL_RenderFillRect(Rendu, &VarRect);
+    }
         
 //----------Affichage de la mis à jour
     SDL_RenderPresent(Rendu); 
@@ -123,6 +136,8 @@ void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu)
             }
 
 //________________________________Parti de mis à jour___________________________________
+            ObstacleSdl->Mouv_Obs_Verticale();
+            ObstacleSdl->Verif_Apparition();
             MAJ_SDL(fenetre, Rendu);
 //____________________________fin de la Parti de mis à jour_______________________________
         }
