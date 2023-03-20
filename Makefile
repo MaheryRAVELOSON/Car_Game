@@ -7,6 +7,7 @@ SDL= src/Sdl
 MAIN_SDL = src/Main_Sdl
 MAIN_TXT = src/Main_Txt
 WINTXT = src/winTxt
+OBSTACLE = src/Obstacle
 
 
 POSITION_O = obj/Position.o
@@ -18,6 +19,7 @@ SDL_O = obj/Sdl.o
 MAIN_SDL_O = obj/Main_Sdl.o
 MAIN_TXT_O = obj/Main_Txt.o
 WINTXT_O = obj/winTxt.o
+OBSTACLE_O = obj/Obstacle.o
 
 
 MAIN_OUT = bin/Main
@@ -30,14 +32,14 @@ PETIT_L = -lSDL2 -lSDL2_ttf -lSDL2_image
 
 all: $(MAIN_OUT) $(MAIN_SDL_OUT) $(MAIN_TXT_OUT)
 
-$(MAIN_OUT): $(MAIN_O) $(POSITION_O) $(SCORE_O) $(JEU_O) $(VOITURE_O) $(SDL_O)
-	g++ -g $(MAIN_O) $(POSITION_O) $(SCORE_O) $(JEU_O) $(VOITURE_O) $(SDL_O) -o $(MAIN_OUT) $(PETIT_L)
+$(MAIN_OUT): $(MAIN_O) $(POSITION_O) $(SCORE_O) $(JEU_O) $(VOITURE_O) $(SDL_O) $(OBSTACLE_O)
+	g++ -g $(MAIN_O) $(POSITION_O) $(SCORE_O) $(JEU_O) $(VOITURE_O) $(SDL_O) $(OBSTACLE_O) -o $(MAIN_OUT) $(PETIT_L)
 
-$(MAIN_SDL_OUT): $(MAIN_SDL_O) $(POSITION_O) $(SCORE_O) $(JEU_O) $(VOITURE_O) $(SDL_O)
-	g++ -g $(MAIN_SDL_O) $(POSITION_O) $(SCORE_O) $(JEU_O) $(VOITURE_O) $(SDL_O) -o $(MAIN_SDL_OUT) $(PETIT_L)
+$(MAIN_SDL_OUT): $(MAIN_SDL_O) $(POSITION_O) $(SCORE_O) $(JEU_O) $(VOITURE_O) $(SDL_O) $(OBSTACLE_O)
+	g++ -g $(MAIN_SDL_O) $(POSITION_O) $(SCORE_O) $(JEU_O) $(VOITURE_O) $(SDL_O) $(OBSTACLE_O) -o $(MAIN_SDL_OUT) $(PETIT_L)
 
-$(MAIN_TXT_OUT): $(MAIN_TXT_O) $(POSITION_O) $(SCORE_O) $(JEU_O) $(VOITURE_O) $(SDL_O) $(WINTXT_O)
-	g++ -g $(MAIN_TXT_O) $(POSITION_O) $(SCORE_O) $(JEU_O) $(VOITURE_O) $(SDL_O) $(WINTXT_O) -o $(MAIN_TXT_OUT) $(PETIT_L)
+$(MAIN_TXT_OUT): $(MAIN_TXT_O) $(POSITION_O) $(SCORE_O) $(JEU_O) $(VOITURE_O) $(SDL_O) $(WINTXT_O) $(OBSTACLE_O)
+	g++ -g $(MAIN_TXT_O) $(POSITION_O) $(SCORE_O) $(JEU_O) $(VOITURE_O) $(SDL_O) $(WINTXT_O) $(OBSTACLE_O) -o $(MAIN_TXT_OUT) $(PETIT_L)
 
 
 $(MAIN_O): $(POSITION).h $(JEU).h $(MAIN).cpp
@@ -66,6 +68,9 @@ $(SDL_O): $(SDL).h $(SDL).cpp
 
 $(WINTXT_O): $(WINTXT).h $(WINTXT).cpp
 	g++ -g -Wall -c $(INCLUDE_DIR_SDL) $(WINTXT).cpp -o $(WINTXT_O)
+
+$(OBSTACLE_O): $(OBSTACLE).h $(OBSTACLE).cpp $(POSITION).h
+	g++ -g -Wall -c $(INCLUDE_DIR_SDL) $(OBSTACLE).cpp -o $(OBSTACLE_O)
 
 clean:
 	rm bin/* obj/*

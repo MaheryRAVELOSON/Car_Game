@@ -5,6 +5,8 @@
 int main (int argc, char** argv)
 {
  
+   srand (time(NULL));  /* initialize random seed: */
+   
    Position Posi;
    Posi.TestRegression();
 
