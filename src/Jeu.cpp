@@ -29,7 +29,7 @@ Jeu::Jeu(int X, int Y)
 
     S_D_L.ObstacleSdl = &Obs;
 
-    Obs.Init_Obstacle();
+    //Obs.Init_Obstacle();
 
 }
 

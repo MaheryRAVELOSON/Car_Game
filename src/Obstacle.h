@@ -16,6 +16,8 @@
 #include <stdlib.h> // pour le abs
 #include <math.h>
 
+#include <unistd.h>
+
 #include "Position.h"
 #include "Score.h"
 

@@ -12,7 +12,7 @@ Voiture::Voiture(int TailleEcranX, int TailleEcranY)
     
     Voiture_Position= new Position;
     int Pourcent= 5;
-    int R= Pourcent*TailleEcranX/100;
+    float R= Pourcent*TailleEcranX/100;
     Voiture_Position->setRayon(R);
     /* la voiture sera un forme de carré dont chaque coté sera de longeur
     "Pourcent"%*2 de la largeur de l'écran" */

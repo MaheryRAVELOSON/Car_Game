@@ -20,13 +20,13 @@
 class Position
 {
     private:
-        int X1;
-        int Y1;
-        int X2;
-        int Y2;
-        int CentreX;
-        int CentreY;
-        int Rayon; //distance entre un pair de XY et le centre
+        float X1;
+        float Y1;
+        float X2;
+        float Y2;
+        float CentreX;
+        float CentreY;
+        float Rayon; //distance entre un pair de XY et le centre
     public:
 //_____________________________________________________________________________
         /**
@@ -42,7 +42,7 @@ class Position
          * 
          * @param n : un int qui contient la nouvelle valeur de Rayon.
          */
-        void setRayon(int n);
+        void setRayon(float n);
 
 //_____________________________________________________________________________
         /**
@@ -51,7 +51,7 @@ class Position
          * 
          * @param n : un int qui contient la nouvelle valeur de X1.
          */
-        void setX1(int n);
+        void setX1(float n);
 
 //_____________________________________________________________________________
         /**
@@ -60,7 +60,7 @@ class Position
          * 
          * @param n : un int qui contient la nouvelle valeur de Y1.
          */
-        void setY1(int n);
+        void setY1(float n);
 
 //_____________________________________________________________________________
         /**
@@ -69,7 +69,7 @@ class Position
          * 
          * @param n : un int qui contient la nouvelle valeur de X2.
          */
-        void setX2(int n);
+        void setX2(float n);
 
 //_____________________________________________________________________________
         /**
@@ -78,7 +78,7 @@ class Position
          * 
          * @param n : un int qui contient la nouvelle valeur de Y2.
          */
-        void setY2(int n);
+        void setY2(float n);
 
 //_____________________________________________________________________________
         /**
@@ -87,7 +87,7 @@ class Position
          * 
          * @param n : un int qui contient la nouvelle valeur de CentreX.
          */
-        void setCentreX(int n);
+        void setCentreX(float n);
 
 //_____________________________________________________________________________
         /**
@@ -96,35 +96,35 @@ class Position
          * 
          * @param n : un int qui contient la nouvelle valeur de CentreY.
          */
-        void setCentreY(int n);
+        void setCentreY(float n);
 //_____________________________________________________________________________
         /**
         * @brief cette fonction renvoie la valeur de la donnée membre X1
         * @return X1: entier : la fonction retourne la valeur du donnée membre 
         * X1
         */
-        int getX1();
+        float getX1();
 //_____________________________________________________________________________
         /**
         * @brief cette fonction renvoie la valeur de la donnée membre X2
         * @return X2: entier : la fonction retourne la valeur du donnée membre 
         * X2
         */
-        int getX2();
+        float getX2();
 //_____________________________________________________________________________
         /**
         * @brief cette fonction renvoie la valeur de la donnée membre Y1
         * @return Y1: entier : la fonction retourne la valeur du donnée membre 
         * Y1
         */
-        int getY1();
+        float getY1();
 //_____________________________________________________________________________
         /**
         * @brief cette fonction renvoie la valeur de la donnée membre Y2
         * @return Y2: entier : la fonction retourne la valeur du donnée membre 
         * Y2
         */
-        int getY2();
+        float getY2();
 
 //_____________________________________________________________________________
         /**
@@ -133,7 +133,7 @@ class Position
          * @return CentreY: entier : la fonction retourne la valeur du donnée
          * membre CentreX
          */
-        int getCentreX();
+        float getCentreX();
 
 //_____________________________________________________________________________
         /**
@@ -142,7 +142,7 @@ class Position
          * @return CentreY: entier : la fonction retourne la valeur du donnée
          * membre CentreY
          */
-        int getCentreY();
+        float getCentreY();
 
 //_____________________________________________________________________________
         /**
@@ -151,7 +151,7 @@ class Position
          * @return Rayon: entier : la fonction retourne la valeur du donnée
          * membre Rayon
          */
-        int getRayon();
+        float getRayon();
 
 //_____________________________________________________________________________
         /**

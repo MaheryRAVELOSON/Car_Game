@@ -9,19 +9,19 @@ using namespace std;
 //_____________________________________________________________________________
 Position::Position()
 {
-    X1=0;
-    X2=0;
-    Y1=0;
-    Y2=0;
-    CentreX=0;
-    CentreY=0;
-    Rayon= 0;
+    X1=0.0;
+    X2=0.0;
+    Y1=0.0;
+    Y2=0.0;
+    CentreX=0.0;
+    CentreY=0.0;
+    Rayon= 0.0;
     
 }
 
 //_____________________________________________________________________________
 
-void Position::setX1(int n)
+void Position::setX1(float n)
 { 
     X1=n;
 
@@ -29,7 +29,7 @@ void Position::setX1(int n)
 
 
 //_____________________________________________________________________________
-void Position::setY1(int n)
+void Position::setY1(float n)
 { 
     Y1=n;
 
@@ -37,7 +37,7 @@ void Position::setY1(int n)
 
 
 //_____________________________________________________________________________
-void Position::setX2(int n)
+void Position::setX2(float n)
 { 
     X2=n;
 
@@ -45,7 +45,7 @@ void Position::setX2(int n)
 
 
 //_____________________________________________________________________________
-void Position::setY2(int n)
+void Position::setY2(float n)
 { 
     Y2=n;
 
@@ -53,7 +53,7 @@ void Position::setY2(int n)
 
 
 //_____________________________________________________________________________
-void Position::setCentreX(int n)
+void Position::setCentreX(float n)
 {
     CentreX=n;
     X1= CentreX - Rayon;
@@ -61,7 +61,7 @@ void Position::setCentreX(int n)
 }
 
 //_____________________________________________________________________________
-void Position::setCentreY(int n)
+void Position::setCentreY(float n)
 {
     CentreY = n;
     Y1= CentreY - Rayon;
@@ -71,7 +71,7 @@ void Position::setCentreY(int n)
 
 //_____________________________________________________________________________
 
-void Position::setRayon(int n)
+void Position::setRayon(float n)
 { 
     Rayon=n;
     X1= CentreX - Rayon;
@@ -82,44 +82,44 @@ void Position::setRayon(int n)
 }
 
 //_____________________________________________________________________________
-int Position::getX1()
+float Position::getX1()
 {
     return X1;
 }
 
 //_____________________________________________________________________________
-int Position::getY1()
+float Position::getY1()
 {
     return Y1;
 }
 
 //_____________________________________________________________________________
-int Position::getX2()
+float Position::getX2()
 {
     return X2;
 }
 
 //_____________________________________________________________________________
-int Position::getY2()
+float Position::getY2()
 {
     return Y2;
 }
 
 //_____________________________________________________________________________
-int Position::getCentreX()
+float Position::getCentreX()
 {
     return CentreX;
 }
 
 //_____________________________________________________________________________
-int Position::getCentreY()
+float Position::getCentreY()
 {
     return CentreY;
 }
 
 
 //_____________________________________________________________________________
-int Position::getRayon()
+float Position::getRayon()
 {
     return Rayon;
 }

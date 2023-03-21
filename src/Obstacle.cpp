@@ -144,14 +144,15 @@ void Obstacle::Init_Obstacle()
 //_____________________________________________________________________________
 void Obstacle::Mouv_Obs_Verticale()
 {
-    int Mouv= (* Deplacement_Obstacle)/2;
-    //on les fait déplacée 2x moins vite que la voiture.
+    //int Mouv= (* Deplacement_Obstacle)/((* Deplacement_Obstacle));
+    float Mouv= 0.1;
 
     for (int i=0; i<TailleTab_Obstacle; i++)
     {
         Tab_Obstacle[i].setY2(Tab_Obstacle[i].getY2()+Mouv);
         Tab_Obstacle[i].setY1(Tab_Obstacle[i].getY1()+Mouv);
     }
+    //usleep(1000);
 }
 
 //_____________________________________________________________________________

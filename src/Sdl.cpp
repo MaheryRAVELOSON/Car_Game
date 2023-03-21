@@ -86,6 +86,7 @@ void Sdl::MAJ_SDL(SDL_Window* &fenetre, SDL_Renderer* &Rendu)
 //----------Affichage de la mis à jour
     SDL_RenderPresent(Rendu); 
     // MAJ de la fenêtre avec le nouveau dessiner
+
 }
 
 
@@ -134,13 +135,12 @@ void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu)
                 default:
                     isOpen = true;
             }
-
-//________________________________Parti de mis à jour___________________________________
-            ObstacleSdl->Mouv_Obs_Verticale();
-            ObstacleSdl->Verif_Apparition();
-            MAJ_SDL(fenetre, Rendu);
-//____________________________fin de la Parti de mis à jour_______________________________
         }
+//________________________________Parti de mis à jour___________________________________
+        ObstacleSdl->Mouv_Obs_Verticale();
+        ObstacleSdl->Verif_Apparition();
+        MAJ_SDL(fenetre, Rendu);
+//____________________________fin de la Parti de mis à jour_______________________________
     }
 }
 
