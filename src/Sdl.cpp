@@ -36,22 +36,22 @@ void Sdl::SdlConstructor(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
 
 
 
-    surface = IMG_Load("data/Car.jpg"); //Charger une image 
+    surface = IMG_Load("data/Car3.png"); //Charger une image 
     //  !!!On ne met pas de .. devant le data !!!
     if (surface == nullptr)
     {
-        cout<<endl<<"Error: cannot load data/Car.jpg"<<endl;
+        cout<<endl<<"Error: cannot load data/Car3.png"<<endl;
         exit(1);
     }
     texture_V = SDL_CreateTextureFromSurface(Rendu, surface); //création d'une texture à partir de l'image
 
 
 
-    surface = IMG_Load("data/Barriere.png"); //Charger une image 
+    surface = IMG_Load("data/obs.png"); //Charger une image 
     //  !!!On ne met pas de .. devant le data !!!
     if (surface == nullptr)
     {
-        cout<<endl<<"Error: cannot load data/Barriere.png"<<endl;
+        cout<<endl<<"Error: cannot load data/obs.png"<<endl;
         exit(1);
     }
     texture_Obs = SDL_CreateTextureFromSurface(Rendu, surface); //création d'une texture à partir de l'image
@@ -105,7 +105,7 @@ void Sdl::MAJ_SDL(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surf
     //on remplis toute la fentre par le rendu
 
 
-    
+
     SDL_RenderCopy(Rendu, texture_R, NULL, NULL); 
 
 
