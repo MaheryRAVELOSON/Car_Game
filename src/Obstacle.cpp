@@ -145,7 +145,7 @@ void Obstacle::Init_Obstacle()
 void Obstacle::Mouv_Obs_Verticale()
 {
     //int Mouv= (* Deplacement_Obstacle)/((* Deplacement_Obstacle));
-    float Mouv= 0.1;
+    float Mouv= 0.02;
 
     for (int i=0; i<TailleTab_Obstacle; i++)
     {
