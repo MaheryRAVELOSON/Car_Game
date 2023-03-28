@@ -19,6 +19,9 @@
 #include <cassert>
 #include <fstream>
 
+#include <SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+
 using namespace std;
 
 
@@ -35,6 +38,9 @@ class Sdl
         int TailleEcran_X_sdl, TailleEcran_Y_sdl;
         int * Niveau_Sdl;
         Obstacle * ObstacleSdl;
+        SDL_Texture* texture_V;
+        SDL_Texture* texture_Obs;
+        SDL_Texture* texture_R;
 
 //_____________________________________________________________________________
         /**
@@ -54,7 +60,7 @@ class Sdl
          * @param Rendu: un pointeur qui va contenir l'adresse memoire du rendu
          * SDL une fois qu'il sera créée dans cette fonction
          */
-        void SdlConstructor(SDL_Window* &fenetre, SDL_Renderer* &Rendu);
+        void SdlConstructor(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface);
 
 //_____________________________________________________________________________________
         /**
@@ -66,7 +72,7 @@ class Sdl
          * @param Rendu: : un pointeur qui va contenir l'adresse memoire du
          * rendu SDL qui a été créée.
          */
-        void SdlDestuctor(SDL_Window* &fenetre, SDL_Renderer* &Rendu);
+        void SdlDestuctor(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface);
 
 
 //_____________________________________________________________________________
@@ -78,7 +84,7 @@ class Sdl
          * @param Rendu: un pointeur qui va contenir l'adresse memoire du rendu
          * SDL qui a été créée. 
          */
-        void MAJ_SDL(SDL_Window* &fenetre, SDL_Renderer* &Rendu);
+        void MAJ_SDL(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface);
 
 //_____________________________________________________________________________
         /**
@@ -91,7 +97,7 @@ class Sdl
          * @param Rendu: un pointeur qui va contenir l'adresse memoire du rendu
          * SDL qui a été créée.
          */
-        void afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu);
+        void afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface);
 
 //_____________________________________________________________________________
         /**

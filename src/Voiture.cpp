@@ -16,15 +16,18 @@ Voiture::Voiture(int TailleEcranX, int TailleEcranY)
     Voiture_Position->setRayon(R);
     /* la voiture sera un forme de carré dont chaque coté sera de longeur
     "Pourcent"%*2 de la largeur de l'écran" */
+    
 
     Pourcent= 5;
     Deplacement= Pourcent*TailleEcranX/100;
     /*La voiture se déplace de "Pourcent"% à chaque fois*/
 
     Voiture_Position->setCentreX(TailleEcranX/2);
-    Voiture_Position->setCentreY(TailleEcranY-R);
+    Voiture_Position->setCentreY(TailleEcranY-R*2);
     /*On itialise la position de la voiture Toute en bas au centre de la
     fenetre*/
+
+    Voiture_Position->setY1(Voiture_Position->getY1()+R);
 }
 
 
