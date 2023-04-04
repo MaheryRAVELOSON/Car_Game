@@ -14,6 +14,7 @@ Jeu::Jeu(int X, int Y)
     Niveau = 1;
     Ptr_Voiture= new Voiture(TailleX,TailleY);
     Score_Joueur= new Score;
+    //Score_Joueur->score= 0;
 
     S_D_L.Voiture_Joeur_Sdl= Ptr_Voiture;
     S_D_L.TailleEcran_X_sdl= TailleX;
@@ -24,7 +25,7 @@ Jeu::Jeu(int X, int Y)
     Obs.TailleEcranX_Obstacle= &TailleX;
     Obs.TailleEcranY_Obstacle= &TailleY;
     Obs.RayonVoiture= Ptr_Voiture->Voiture_Position->getRayon();
-    Obs.Score_Obstacle = Score_Joueur;
+    //Obs.Score_Obstacle = Score_Joueur;
     Obs.Deplacement_Obstacle= &(Ptr_Voiture->Deplacement);
 
     S_D_L.ObstacleSdl = &Obs;

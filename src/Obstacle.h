@@ -58,7 +58,6 @@ class Obstacle
         int * Niveau_Obstacle;
         int * TailleEcranX_Obstacle;
         int * Distance_Obstacle;
-        Score * Score_Obstacle;
         int TailleTab_Obstacle;
         bool passage_possible;
         int * Deplacement_Obstacle;
@@ -95,7 +94,14 @@ class Obstacle
         void Mouv_Obs_Verticale();
 
 //_____________________________________________________________________________
-        void Verif_Apparition();
+        /**
+         * @brief Cette fonction verifie si chaque obstacle sont encore visible
+         * dans l'écran. Sinon il donne une nouvelle coordonnée.
+         * 
+         * @return il renvoie le nombre d'obstacle qui ne sont plus visible sur
+         * l'écran
+         */
+        int Verif_Apparition(Score * Score_Joueur);
 
 //_____________________________________________________________________________
         //void TestRegression();

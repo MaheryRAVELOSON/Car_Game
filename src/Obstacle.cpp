@@ -85,7 +85,7 @@ void Obstacle::Init_Obstacle()
 
 //------------Initialisation du reste des cases
 
-    for(int i=0; i<TailleTab_Obstacle; i++)
+    for(int i=1; i<TailleTab_Obstacle; i++)
     {
         /*REMARQUE: on ne passe à l'obstacle actuel que si l'obstacle précédent
         a ses coordonnée en règles*/
@@ -99,7 +99,8 @@ void Obstacle::Init_Obstacle()
             //on laissera une passage de 150% de la taille de la voiture
 
             val= rand()%(val + 1);
-            Tab_Obstacle[i].setX2(val);
+            Tab_Obstacle[i].setX2(Tab_Obstacle[i].getX1() + 100);
+            //MODIFIED
 
             passage= (* Distance_Obstacle) + (* Distance_Obstacle)/3;
 
@@ -129,7 +130,7 @@ void Obstacle::Init_Obstacle()
         passage= (* Distance_Obstacle)/3;
         val = (* Distance_Obstacle);
         val *= 6;
-        val += rand()% passage;
+        //val += rand()% passage;
         Tab_Obstacle[i].setY2(Tab_Obstacle[i-1].getY1() - val);
         Tab_Obstacle[i].setY1(Tab_Obstacle[i].getY2()-(* Distance_Obstacle));
         /*Entre deux obstacle, on aura une distance entre la hauteur de la
@@ -156,17 +157,20 @@ void Obstacle::Mouv_Obs_Verticale()
 }
 
 //_____________________________________________________________________________
-void Obstacle::Verif_Apparition()
+int Obstacle::Verif_Apparition(Score * Score_Joueur)
 {
+
+    int count = 0;
     int j;
     int val= 0;
     int passage;
     for (int i=0; i<TailleTab_Obstacle; i++)
     {
+        
         if (Tab_Obstacle[i].getY1()>(* TailleEcranY_Obstacle))
         {
-        
-            do {
+
+            //do {
                 val= rand()%((* TailleEcranX_Obstacle)/2);
                 Tab_Obstacle[i].setX1(val);
 
@@ -208,26 +212,34 @@ void Obstacle::Verif_Apparition()
                     }
                 }
 
-            }while(passage_possible != true);
+           // }while(passage_possible != true);
+
+            Tab_Obstacle[i].setX2(Tab_Obstacle[i].getX1() + 100);
+            //MODIFIED
 
             
             val = (* Distance_Obstacle);
-            val *= 6; // val correspond maintenant à la totalité de la taille 
+            val *= 5; // val correspond maintenant à la totalité de la taille 
                       // d'une coté de la voiture
 
             passage= (* Distance_Obstacle)/3;
-            val += (rand()% passage);
+            //val += (rand()% passage);
             
             Tab_Obstacle[i].setY2(Tab_Obstacle[j].getY1() - val);
             Tab_Obstacle[i].setY1(Tab_Obstacle[i].getY2()-(* Distance_Obstacle));
             /*Entre deux obstacle, on aura une distance entre la hauteur de la
             voiture et la hauteur de la voiture + [hauteur de la voiture/3]*/
 
+
             passage_possible= false;
-            
+            Score_Joueur->score= Score_Joueur->score + 1;   
+            //cout<<endl<<Score_Joueur->score<<endl;
+
         }
 
     }
+
+    return count;
 }
 
 //_____________________________________________________________________________

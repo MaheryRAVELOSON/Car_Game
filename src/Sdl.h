@@ -97,7 +97,7 @@ class Sdl
          * @param Rendu: un pointeur qui va contenir l'adresse memoire du rendu
          * SDL qui a été créée.
          */
-        void afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface);
+        void afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface, Score * Score_Joueur);
 
 //_____________________________________________________________________________
         /**
@@ -106,7 +106,7 @@ class Sdl
          * l'écran; enfin cette fonction appelle la procedure qui fait les
          * désallocation necessaire fait par les variables SDL
          */
-        void afficher();
+        void afficher(Score * Score_Joueur);
 };
 
 

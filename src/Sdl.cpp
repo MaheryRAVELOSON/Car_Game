@@ -159,8 +159,9 @@ void Sdl::MAJ_SDL(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surf
 
 
 //_____________________________________________________________________________
-void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface)
+void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface, Score * Score_Joueur)
 {
+    sleep(1);
     SDL_Event evenement;
     bool isOpen= true;
     while (isOpen)
@@ -205,22 +206,25 @@ void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
             }
         }
 //________________________________Partie de mis à jour___________________________________
-        ObstacleSdl->Mouv_Obs_Verticale();
-        ObstacleSdl->Verif_Apparition();
-        MAJ_SDL(fenetre, Rendu, surface);
+        //if(Score_Joueur->score <= 20)
+        //{
+            ObstacleSdl->Mouv_Obs_Verticale();
+            ObstacleSdl->Verif_Apparition(Score_Joueur);
+            MAJ_SDL(fenetre, Rendu, surface);
+        //}
 //____________________________Fin de la partie de mise à jour_______________________________
     }
 }
 
 
 //_____________________________________________________________________________
-void Sdl::afficher()
+void Sdl::afficher(Score * Score_Joueur)
 {
     SDL_Window* fenetre = nullptr;
     SDL_Renderer* Rendu = nullptr;
     SDL_Surface* surface = nullptr;
-    SdlConstructor(fenetre, Rendu, surface); 
-    afficherBoucle(fenetre, Rendu, surface);
+    SdlConstructor(fenetre, Rendu, surface);
+    afficherBoucle(fenetre, Rendu, surface, Score_Joueur);
     SdlDestuctor(fenetre, Rendu, surface);
 }
 
