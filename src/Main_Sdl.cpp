@@ -1,10 +1,11 @@
-#include "Jeu.h"
+#include "Sdl.h"
 
 int main (int argc, char** argv)
 {
    
-   Jeu JeuJ;
-   JeuJ.S_D_L.afficher(JeuJ.Score_Joueur);
+   Sdl S_D_L;
+
+   S_D_L.afficher();
  
    return 0;
 }

@@ -12,23 +12,24 @@
 #define Jeu_H
 #include "Voiture.h"
 #include "Score.h"
-#include "Sdl.h"
 #include "Obstacle.h"
+#include "Niveau.h"
 
 /**
  * @brief La classe Jeu va mettre en relation toutes les classes nécessaires 
  * pour le jeu. 
- * Il contient une donnée membre TailleX et TailleY qui correspondent à la 
- * taille de l'écran de l'affichage , et une variable de type classe Voiture.
+ * Il contient comme donnée membre TailleX et TailleY qui correspondent à la 
+ * taille de l'écran de l'affichage , un pointeur de type classe Voiture,
+ * un pointeur de type classe Score, une classe obstacle.
  */
 class Jeu
 {
     public:
         int TailleX, TailleY, Niveau;
         Voiture * Ptr_Voiture;
-        Score * Score_Joueur;
-        Sdl S_D_L;
-        Obstacle Obs;
+        Score Score_Joueur;
+        Obstacle * Obs;
+        Niveaux Niv;
         
 
 //_____________________________________________________________________________

@@ -12,7 +12,7 @@ void Sdl::SdlConstructor(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
 
     fenetre = nullptr;
     fenetre = SDL_CreateWindow("CarGame", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-              TailleEcran_X_sdl, TailleEcran_Y_sdl, SDL_WINDOW_SHOWN |
+              JEU.TailleX, JEU.TailleY, SDL_WINDOW_SHOWN |
               SDL_WINDOW_RESIZABLE);
 
     if (fenetre == nullptr) {
@@ -119,11 +119,10 @@ void Sdl::MAJ_SDL(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surf
     SDL_Rect VarRect; 
     //declaration d'un coordonnée en type rectangle
 
-
-    VarRect.h= Voiture_Joeur_Sdl->Voiture_Position->getRayon()*2;
-    VarRect.w= Voiture_Joeur_Sdl->Voiture_Position->getRayon()*1.5;
-    VarRect.x = Voiture_Joeur_Sdl->Voiture_Position->getX1();
-    VarRect.y = Voiture_Joeur_Sdl->Voiture_Position->getY1();
+    VarRect.h= JEU.Ptr_Voiture->Voiture_Position->getY2() - JEU.Ptr_Voiture->Voiture_Position->getY1();
+    VarRect.w= JEU.Ptr_Voiture->Voiture_Position->getX2() - JEU.Ptr_Voiture->Voiture_Position->getX1();
+    VarRect.x = JEU.Ptr_Voiture->Voiture_Position->getX1();
+    VarRect.y = JEU.Ptr_Voiture->Voiture_Position->getY1();
 
 
     //SDL_SetRenderDrawColor(Rendu, 0, 0, 255, 255); //définition de la couleur du pt
@@ -137,13 +136,13 @@ void Sdl::MAJ_SDL(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surf
 
 
 
-    for (int i=0; i<ObstacleSdl->TailleTab_Obstacle; i++)
+    for (int i=0; i<JEU.Obs->TailleTab_Obstacle; i++)
     {
         SDL_Rect VarRect;
-        VarRect.w= ObstacleSdl->Tab_Obstacle[i].getX2() - ObstacleSdl->Tab_Obstacle[i].getX1();
-        VarRect.h= ObstacleSdl->Tab_Obstacle[i].getY2() - ObstacleSdl->Tab_Obstacle[i].getY1();
-        VarRect.x= ObstacleSdl->Tab_Obstacle[i].getX1();
-        VarRect.y= ObstacleSdl->Tab_Obstacle[i].getY1();
+        VarRect.w= JEU.Obs->Tab_Obstacle[i].getX2() - JEU.Obs->Tab_Obstacle[i].getX1();
+        VarRect.h= JEU.Obs->Tab_Obstacle[i].getY2() - JEU.Obs->Tab_Obstacle[i].getY1();
+        VarRect.x= JEU.Obs->Tab_Obstacle[i].getX1();
+        VarRect.y= JEU.Obs->Tab_Obstacle[i].getY1();
 
         //SDL_SetRenderDrawColor(Rendu, 255, 255, 255, 255);
         //SDL_RenderFillRect(Rendu, &VarRect);
@@ -159,7 +158,7 @@ void Sdl::MAJ_SDL(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surf
 
 
 //_____________________________________________________________________________
-void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface, Score * Score_Joueur)
+void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface)
 {
     sleep(1);
     SDL_Event evenement;
@@ -181,24 +180,24 @@ void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
                     }
                     if (evenement.key.keysym.sym == SDLK_q)
                     {
-                        Voiture_Joeur_Sdl->Deplacer_Gauche();
+                        JEU.Ptr_Voiture->Deplacer_Gauche();
                         //déplacement à gauche
                     }
                     if (evenement.key.keysym.sym == SDLK_d)
                     {
-                        Voiture_Joeur_Sdl->Deplacer_Droite(TailleEcran_X_sdl);
+                        JEU.Ptr_Voiture->Deplacer_Droite(JEU.TailleX);
                         //déplacement à droite
                     }
                     if (evenement.key.keysym.sym == SDLK_z)
                     {
-                        //Voiture_Joeur_Sdl->Deplacer_Haut(2);
-                        Voiture_Joeur_Sdl->Deplacer_Haut((* Niveau_Sdl));
+                        JEU.Ptr_Voiture->Deplacer_Haut(2);
+                        //JEU.Ptr_Voiture->Deplacer_Haut(JEU.Niveau);
                         //déplacement en haut
                     }
                     if (evenement.key.keysym.sym == SDLK_s)
                     {
-                        //Voiture_Joeur_Sdl->Deplacer_Bas(2, TailleEcran_Y_sdl);
-                        Voiture_Joeur_Sdl->Deplacer_Bas((* Niveau_Sdl), TailleEcran_Y_sdl);
+                        JEU.Ptr_Voiture->Deplacer_Bas(2, JEU.TailleY);
+                        //JEU.Ptr_Voiture->Deplacer_Bas(JEU.Niveau, JEU.TailleY);
                         //déplacement en bas
                     }
                 default:
@@ -206,25 +205,23 @@ void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
             }
         }
 //________________________________Partie de mis à jour___________________________________
-        //if(Score_Joueur->score <= 20)
-        //{
-            ObstacleSdl->Mouv_Obs_Verticale();
-            ObstacleSdl->Verif_Apparition(Score_Joueur);
+
+            JEU.Niv.Mouv_Verticale((* JEU.Obs));
+            JEU.Obs->Verif_Apparition(JEU.Score_Joueur, JEU.TailleX, JEU.TailleY);
             MAJ_SDL(fenetre, Rendu, surface);
-        //}
 //____________________________Fin de la partie de mise à jour_______________________________
     }
 }
 
 
 //_____________________________________________________________________________
-void Sdl::afficher(Score * Score_Joueur)
+void Sdl::afficher()
 {
     SDL_Window* fenetre = nullptr;
     SDL_Renderer* Rendu = nullptr;
     SDL_Surface* surface = nullptr;
     SdlConstructor(fenetre, Rendu, surface);
-    afficherBoucle(fenetre, Rendu, surface, Score_Joueur);
+    afficherBoucle(fenetre, Rendu, surface);
     SdlDestuctor(fenetre, Rendu, surface);
 }
 
@@ -232,13 +229,6 @@ void Sdl::afficher(Score * Score_Joueur)
 //_____________________________________________________________________________
 Sdl::~Sdl()
 {
-    Voiture_Joeur_Sdl= nullptr;
-    Niveau_Sdl=nullptr;
 
-    /*Ces pointeur pointe sur des addresse memoire qui:
-    - soit ont été alloué par
-    la classe Jeu (donc qui sont aussi désalloué par le destructeur de cette
-    classe)
-    - soit sont des simple addresse memoire de variable de la classe Jeu et
-    qui sont sur la pile: pas d'allocation.*/
+    //Rien de special
 }

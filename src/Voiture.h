@@ -28,6 +28,8 @@ class Voiture
     public:
         Position * Voiture_Position;
         int Deplacement;
+        float Hauteur;
+        float Largeur;
 
 //_____________________________________________________________________________
         /**

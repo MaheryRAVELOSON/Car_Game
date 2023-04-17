@@ -22,6 +22,8 @@
 #include <SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 
+#include "Jeu.h"
+
 using namespace std;
 
 
@@ -34,10 +36,7 @@ using namespace std;
 class Sdl
 {
     public:
-        Voiture * Voiture_Joeur_Sdl;
-        int TailleEcran_X_sdl, TailleEcran_Y_sdl;
-        int * Niveau_Sdl;
-        Obstacle * ObstacleSdl;
+        Jeu JEU;
         SDL_Texture* texture_V;
         SDL_Texture* texture_Obs;
         SDL_Texture* texture_R;
@@ -86,7 +85,7 @@ class Sdl
          */
         void MAJ_SDL(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface);
 
-//_____________________________________________________________________________
+//_______________________________________________un pointeur de type classe Voiture______________________________
         /**
          * @brief Il va appeller en boucle la fonction de la mis à jour de
          * l'affichage jusqu'à ce que l'utilisateur décide d'arrêter. Il traite
@@ -97,7 +96,7 @@ class Sdl
          * @param Rendu: un pointeur qui va contenir l'adresse memoire du rendu
          * SDL qui a été créée.
          */
-        void afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface, Score * Score_Joueur);
+        void afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface);
 
 //_____________________________________________________________________________
         /**
@@ -106,7 +105,7 @@ class Sdl
          * l'écran; enfin cette fonction appelle la procedure qui fait les
          * désallocation necessaire fait par les variables SDL
          */
-        void afficher(Score * Score_Joueur);
+        void afficher();
 };
 
 
