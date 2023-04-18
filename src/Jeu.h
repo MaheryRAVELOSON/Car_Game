@@ -29,7 +29,7 @@ class Jeu
         Voiture * Ptr_Voiture;
         Score Score_Joueur;
         Obstacle * Obs;
-        Niveaux Niv;
+        Niveaux * Niv;
         
 
 //_____________________________________________________________________________

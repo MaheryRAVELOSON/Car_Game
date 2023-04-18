@@ -16,10 +16,12 @@ Jeu::Jeu(int X, int Y)
     //Score_Joueur= new Score;
     Score_Joueur.score=0;
 
-    Obs= new Obstacle(20, Ptr_Voiture->Largeur, Ptr_Voiture->Deplacement);
+    Obs= new Obstacle(20, Ptr_Voiture->Voiture_Position->Largeur, Ptr_Voiture->Deplacement);
 
 
     Obs->Init_Obstacle(TailleX);
+
+    Niv = new Niveaux(Obs->TailleTab_Obstacle);
 
 }
 
@@ -30,6 +32,8 @@ Jeu::~Jeu()
     delete  Ptr_Voiture;
     //delete Score_Joueur;
     delete Obs;
+
+    delete Niv;
 }
 
 
@@ -46,12 +50,12 @@ void Jeu::TestRegression()
     
     PtrJeu->Ptr_Voiture->Deplacer_Gauche();
     assert(PtrJeu->Ptr_Voiture->Voiture_Position->getX1()==(PtrJeu->TailleX)/2 - 
-    PtrJeu->Ptr_Voiture->Deplacement - (PtrJeu->Ptr_Voiture->Largeur/2));
+    PtrJeu->Ptr_Voiture->Deplacement - (PtrJeu->Ptr_Voiture->Voiture_Position->Largeur/2));
     
 
     PtrJeu->Ptr_Voiture->Deplacer_Droite(PtrJeu->TailleX);
     assert(PtrJeu->Ptr_Voiture->Voiture_Position->getX2()==(PtrJeu->TailleX)/2 + 
-    (PtrJeu->Ptr_Voiture->Largeur)/2);
+    (PtrJeu->Ptr_Voiture->Voiture_Position->Largeur)/2);
 
     
     PtrJeu->Ptr_Voiture->Deplacer_Bas(2, PtrJeu->TailleY);
@@ -60,12 +64,12 @@ void Jeu::TestRegression()
 
     PtrJeu->Ptr_Voiture->Deplacer_Haut(2);
     assert(PtrJeu->Ptr_Voiture->Voiture_Position->getY1()==PtrJeu->TailleY-
-    (PtrJeu->Ptr_Voiture->Hauteur + PtrJeu->Ptr_Voiture->Deplacement  ));
+    (PtrJeu->Ptr_Voiture->Voiture_Position->Hauteur + PtrJeu->Ptr_Voiture->Deplacement  ));
 
 
     PtrJeu->Ptr_Voiture->Deplacer_Bas(2, PtrJeu->TailleY);
     assert(PtrJeu->Ptr_Voiture->Voiture_Position->getY1()==PtrJeu->TailleY-
-    (PtrJeu->Ptr_Voiture->Hauteur));
+    (PtrJeu->Ptr_Voiture->Voiture_Position->Hauteur));
 
 
 
@@ -82,8 +86,9 @@ void Jeu::TestRegression()
             "  Y2: "<<PtrJeu->Obs->Tab_Obstacle[i].getY2()<<endl;
     }
 
+    
     cout<<endl<<endl<<"mouvement verticale de: "<<endl;
-    PtrJeu->Niv.Mouv_Verticale((* PtrJeu->Obs));
+    PtrJeu->Niv->N1_Mouv_Verticale((* PtrJeu->Obs));
     for (int i=0; i<PtrJeu->Obs->TailleTab_Obstacle; i++)
     {
         cout<<endl<<"X1: "<<PtrJeu->Obs->Tab_Obstacle[i].getX1()<<

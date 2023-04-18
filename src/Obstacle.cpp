@@ -71,6 +71,9 @@ void Obstacle::Init_Obstacle(int TailleEcranX)
 
    passage_possible= false;
 
+   Tab_Obstacle[0].Largeur= Tab_Obstacle[0].getX2() - Tab_Obstacle[0].getX1();
+   Tab_Obstacle[0].Hauteur= Tab_Obstacle[0].getY2() - Tab_Obstacle[0].getY1();
+
 //------------Initialisation du reste des cases
 
     for(int i=1; i<TailleTab_Obstacle; i++)
@@ -85,6 +88,11 @@ void Obstacle::Init_Obstacle(int TailleEcranX)
             passage= Distance_Obstacle + Distance_Obstacle/pourcent;
             //on laissera une passage de 150% de la taille de la voiture
             val = TailleEcranX - passage - 100 - val;
+
+            if(val<=0)
+            {
+                val= 1;
+            }
             
 
             val= (rand()%(val)) + Tab_Obstacle[i].getX1() + 100;
@@ -132,6 +140,9 @@ void Obstacle::Init_Obstacle(int TailleEcranX)
         Tab_Obstacle[i].setY1(Tab_Obstacle[i].getY2()-Distance_Obstacle);
 
         passage_possible= false;
+
+        Tab_Obstacle[i].Largeur= Tab_Obstacle[i].getX2() - Tab_Obstacle[i].getX1();
+        Tab_Obstacle[i].Hauteur= Tab_Obstacle[i].getY2() - Tab_Obstacle[i].getY1();
         
     }
 
@@ -227,3 +238,60 @@ int Obstacle::Verif_Apparition(Score &Score_Joueur, int TailleEcranX, int Taille
 }
 
 //_____________________________________________________________________________
+bool Obstacle::Collision(Voiture &Voiture_Joueur)
+{
+    float precision= 10;
+    bool resultat= false;
+    for(int i=0; i<TailleTab_Obstacle; i++)
+    {
+        //Coin en haut à gauche de la voiture
+        if((Tab_Obstacle[i].getX1()<Voiture_Joueur.Voiture_Position->getX1()+precision) &&
+        (Tab_Obstacle[i].getX2()>Voiture_Joueur.Voiture_Position->getX1()+precision))
+        {
+            if((Tab_Obstacle[i].getY1()<Voiture_Joueur.Voiture_Position->getY1()+precision) &&
+            (Tab_Obstacle[i].getY2()>Voiture_Joueur.Voiture_Position->getY1()+precision))
+            {
+                resultat= true;
+                return resultat;
+            }
+        }
+
+        // Coin en bas à gauche de la voiture
+        if((Tab_Obstacle[i].getX1()<Voiture_Joueur.Voiture_Position->getX1()+precision) &&
+        (Tab_Obstacle[i].getX2()>Voiture_Joueur.Voiture_Position->getX1()+precision))
+        {
+            if((Tab_Obstacle[i].getY1()<Voiture_Joueur.Voiture_Position->getY2()-precision) &&
+            (Tab_Obstacle[i].getY2()>Voiture_Joueur.Voiture_Position->getY2()-precision))
+            {
+                resultat= true;
+                return resultat;
+            }
+        }
+
+        //Coin en haut à droite de la voiture
+        if((Tab_Obstacle[i].getX1()<Voiture_Joueur.Voiture_Position->getX2()-precision) &&
+        (Tab_Obstacle[i].getX2()>Voiture_Joueur.Voiture_Position->getX2()-precision))
+        {
+            if((Tab_Obstacle[i].getY1()<Voiture_Joueur.Voiture_Position->getY1()+precision) &&
+            (Tab_Obstacle[i].getY2()>Voiture_Joueur.Voiture_Position->getY1()+precision))
+            {
+                resultat= true;
+                return resultat;
+            }
+        }
+
+        //Coin en bas à droite de la voiture
+        if((Tab_Obstacle[i].getX1()<Voiture_Joueur.Voiture_Position->getX2()-precision) &&
+        (Tab_Obstacle[i].getX2()>Voiture_Joueur.Voiture_Position->getX2()-precision))
+        {
+            if((Tab_Obstacle[i].getY1()<Voiture_Joueur.Voiture_Position->getY2()-precision) &&
+            (Tab_Obstacle[i].getY2()>Voiture_Joueur.Voiture_Position->getY2()-precision))
+            {
+                resultat= true;
+                return resultat;
+            }
+        }
+    }
+
+    return resultat;
+}

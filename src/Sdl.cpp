@@ -23,7 +23,7 @@ void Sdl::SdlConstructor(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
     }
 
     Rendu = nullptr;
-    Rendu= SDL_CreateRenderer(fenetre, -1, SDL_RENDERER_ACCELERATED);
+    Rendu= SDL_CreateRenderer(fenetre, -1, SDL_RENDERER_SOFTWARE);
 
 
     //initialisation de l'image de SDL2
@@ -163,52 +163,75 @@ void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
     sleep(1);
     SDL_Event evenement;
     bool isOpen= true;
+    bool fin_Jeu= false;
     while (isOpen)
     {
-        while (SDL_PollEvent(&evenement))
-        {
-            switch (evenement.type)
+        fin_Jeu= JEU.Obs->Collision((* JEU.Ptr_Voiture));
+            while (SDL_PollEvent(&evenement))
             {
-                case SDL_QUIT:
-                    isOpen = false;
-                    break;
-                case SDL_KEYDOWN:
-                    if (evenement.key.keysym.sym == SDLK_ESCAPE)
-                    {
+                switch (evenement.type)
+                {
+                    case SDL_QUIT:
                         isOpen = false;
                         break;
-                    }
-                    if (evenement.key.keysym.sym == SDLK_q)
-                    {
-                        JEU.Ptr_Voiture->Deplacer_Gauche();
-                        //déplacement à gauche
-                    }
-                    if (evenement.key.keysym.sym == SDLK_d)
-                    {
-                        JEU.Ptr_Voiture->Deplacer_Droite(JEU.TailleX);
-                        //déplacement à droite
-                    }
-                    if (evenement.key.keysym.sym == SDLK_z)
-                    {
-                        JEU.Ptr_Voiture->Deplacer_Haut(2);
-                        //JEU.Ptr_Voiture->Deplacer_Haut(JEU.Niveau);
-                        //déplacement en haut
-                    }
-                    if (evenement.key.keysym.sym == SDLK_s)
-                    {
-                        JEU.Ptr_Voiture->Deplacer_Bas(2, JEU.TailleY);
-                        //JEU.Ptr_Voiture->Deplacer_Bas(JEU.Niveau, JEU.TailleY);
-                        //déplacement en bas
-                    }
-                default:
-                    isOpen = true;
+                    case SDL_KEYDOWN:
+                        if (evenement.key.keysym.sym == SDLK_ESCAPE)
+                        {
+                            isOpen = false;
+                            break;
+                        }
+                        if ((evenement.key.keysym.sym == SDLK_q) && (!fin_Jeu))
+                        {
+                            JEU.Ptr_Voiture->Deplacer_Gauche();
+                            //déplacement à gauche
+                        }
+                        if ((evenement.key.keysym.sym == SDLK_d) && (!fin_Jeu))
+                        {
+                            JEU.Ptr_Voiture->Deplacer_Droite(JEU.TailleX);
+                            //déplacement à droite
+                        }
+                        if ((evenement.key.keysym.sym == SDLK_z) && (!fin_Jeu))
+                        {
+                            //JEU.Ptr_Voiture->Deplacer_Haut(2);
+                            JEU.Ptr_Voiture->Deplacer_Haut(JEU.Niveau);
+                            //déplacement en haut
+                        }
+                        if ((evenement.key.keysym.sym == SDLK_s) && (!fin_Jeu))
+                        {
+                            //JEU.Ptr_Voiture->Deplacer_Bas(2, JEU.TailleY);
+                            JEU.Ptr_Voiture->Deplacer_Bas(JEU.Niveau, JEU.TailleY);
+                            //déplacement en bas
+                        }
+                        if ((evenement.key.keysym.sym == SDLK_l) && (!fin_Jeu))
+                        {
+                            isOpen = false;
+                        }
+
+                    default:
+                        isOpen = true;
+                }
+            }
+//________________________________Partie de mis à jour___________________________________
+        if(!fin_Jeu)
+        {    
+            JEU.Niv->N1_Mouv_Verticale((* JEU.Obs));
+            JEU.Niv->N2_Mouv_Horizontale((* JEU.Obs), JEU.TailleX, JEU.Niveau);
+
+            JEU.Obs->Verif_Apparition(JEU.Score_Joueur, JEU.TailleX, JEU.TailleY);
+        }
+            MAJ_SDL(fenetre, Rendu, surface);
+    //----------MAJ des score
+        if(JEU.Niveau<=4)
+        {
+            if(JEU.Score_Joueur.score>0)
+            {
+                JEU.Niveau= 2;
+                if(JEU.Score_Joueur.score>30)
+                {
+                    JEU.Niveau= 3;
+                }
             }
         }
-//________________________________Partie de mis à jour___________________________________
-
-            JEU.Niv.Mouv_Verticale((* JEU.Obs));
-            JEU.Obs->Verif_Apparition(JEU.Score_Joueur, JEU.TailleX, JEU.TailleY);
-            MAJ_SDL(fenetre, Rendu, surface);
 //____________________________Fin de la partie de mise à jour_______________________________
     }
 }

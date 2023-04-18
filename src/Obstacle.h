@@ -20,6 +20,7 @@
 
 #include "Position.h"
 #include "Score.h"
+#include "Voiture.h"
 
 using namespace std;
 
@@ -97,6 +98,9 @@ class Obstacle
          * 
          */
         ~Obstacle();
+
+//_____________________________________________________________________________
+        bool Collision(Voiture &Voiture_Joueur);
 
 
 };

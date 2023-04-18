@@ -28,6 +28,8 @@ class Position
         float CentreY;
         float Rayon; //distance entre un pair de XY et le centre
     public:
+        float Largeur;
+        float Hauteur;
 //_____________________________________________________________________________
         /**
          * @brief Ce constructeur initialise tout les donnée membres à 0.

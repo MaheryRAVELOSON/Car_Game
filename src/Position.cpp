@@ -13,6 +13,8 @@ Position::Position()
     X2=0.0;
     Y1=0.0;
     Y2=0.0;
+    Largeur= 0.0;
+    Hauteur= 0.0;
     CentreX=0.0;
     CentreY=0.0;
     Rayon= 0.0;
