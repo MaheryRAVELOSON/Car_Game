@@ -230,6 +230,9 @@ int Obstacle::Verif_Apparition(Score &Score_Joueur, int TailleEcranX, int Taille
             Score_Joueur.score= Score_Joueur.score + 1;   
             cout<<endl<<Score_Joueur.score<<endl;
 
+            Tab_Obstacle[i].Largeur= Tab_Obstacle[i].getX2() - Tab_Obstacle[i].getX1();
+            Tab_Obstacle[i].Hauteur= Tab_Obstacle[i].getY2() - Tab_Obstacle[i].getY1();
+
         }
 
     }

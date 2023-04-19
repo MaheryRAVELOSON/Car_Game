@@ -8,19 +8,25 @@ Niveaux::Niveaux(int Nbr_Obstacle)
     N1_Deplacement= 0.05;
     N2_Deplacement= 0.05;
     N2_Tab_Direction= new int[Total_Obstacle];
+    N3_Tab_Agrandissement= new  bool[Total_Obstacle];
+    N3_Modif_Max= 10.0;
+    N3_Tab_Etat_de_Modif= new float[Total_Obstacle];
 
-//----------Initialisation du N2_Tab_Direction:
+//----------Initialisation du N2_Tab_Direction et de N3_Tab_Agrandissement:
     for(int i=0; i<Nbr_Obstacle; i++)
     {
         if((i%2)==0)
         {
             N2_Tab_Direction[i]= 1; //Deplacement vers la droite
+            N3_Tab_Agrandissement[i]= true;
         }
         else
         {
             N2_Tab_Direction[i]= -1; //Deplacement vers la gauche
+            N3_Tab_Agrandissement[i]= false;
         }
-        cout<<endl<<"i%2= "<<i%2<<endl;
+        N3_Tab_Etat_de_Modif[i]= 0;
+        //cout<<endl<<"i%2= "<<i%2<<endl;
     }
 
 }
@@ -29,6 +35,7 @@ Niveaux::Niveaux(int Nbr_Obstacle)
 Niveaux::~Niveaux()
 {
     delete [] N2_Tab_Direction;
+    delete [] N3_Tab_Agrandissement;
 }
 
 //_____________________________________________________________________________
@@ -65,5 +72,15 @@ void Niveaux::N2_Mouv_Horizontale(Obstacle &Obs, int TailleEcranX, int Niveau_Jo
                 N2_Tab_Direction[i]=-1;
             }
         }
+    }
+}
+
+//_____________________________________________________________________________
+void Niveaux::N3_Agrandissement(Obstacle &Obs, int Indice_Pos)
+{
+    if(N3_Tab_Etat_de_Modif[Indice_Pos]<N3_Modif_Max)
+    {
+        N3_Tab_Etat_de_Modif[Indice_Pos] += 1;
+        Obs.Tab_Obstacle[Indice_Pos].setX1(Obs.Tab_Obstacle[Indice_Pos].getX1()-1);
     }
 }
