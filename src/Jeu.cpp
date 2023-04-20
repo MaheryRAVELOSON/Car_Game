@@ -21,7 +21,7 @@ Jeu::Jeu(int X, int Y)
 
     Obs->Init_Obstacle(TailleX);
 
-    Niv = new Niveaux(Obs->TailleTab_Obstacle);
+    Niv = new Niveaux(Obs->TailleTab_Obstacle, Obs->Distance_Obstacle);
 
 }
 

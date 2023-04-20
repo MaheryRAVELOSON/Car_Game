@@ -166,7 +166,7 @@ void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
     bool fin_Jeu= false;
     while (isOpen)
     {
-        fin_Jeu= JEU.Obs->Collision((* JEU.Ptr_Voiture));
+        //fin_Jeu= JEU.Obs->Collision((* JEU.Ptr_Voiture));
             while (SDL_PollEvent(&evenement))
             {
                 switch (evenement.type)
@@ -202,6 +202,11 @@ void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
                             JEU.Ptr_Voiture->Deplacer_Bas(JEU.Niveau, JEU.TailleY);
                             //déplacement en bas
                         }
+                        if ((evenement.key.keysym.sym == SDLK_r) && (!fin_Jeu))
+                        {
+                            afficher();
+                            //On recommence le jeu.
+                        }
                         if ((evenement.key.keysym.sym == SDLK_l) && (!fin_Jeu))
                         {
                             isOpen = false;
@@ -214,12 +219,15 @@ void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
 //________________________________Partie de mis à jour___________________________________
         if(!fin_Jeu)
         {    
+            JEU.Niv->N3_Modif_Des_Coords((* JEU.Obs));
             JEU.Niv->N1_Mouv_Verticale((* JEU.Obs));
             JEU.Niv->N2_Mouv_Horizontale((* JEU.Obs), JEU.TailleX, JEU.Niveau);
 
-            JEU.Obs->Verif_Apparition(JEU.Score_Joueur, JEU.TailleX, JEU.TailleY);
+            JEU.Obs->Verif_Apparition(JEU.Score_Joueur, JEU.TailleX, JEU.TailleY,
+            JEU.Niv->N3_Tab_Etat_de_Modif);
         }
             MAJ_SDL(fenetre, Rendu, surface);
+            //cout<<endl<<JEU.Obs->Tab_Obstacle[0].getX1()<<endl;
     //----------MAJ des score
         if(JEU.Niveau<=4)
         {

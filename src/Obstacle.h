@@ -89,7 +89,8 @@ class Obstacle
          * @return il renvoie le nombre d'obstacle qui ne sont plus visible sur
          * l'écran
          */
-        int Verif_Apparition(Score &Score_Joueur, int TailleEcranX, int TailleEcranY);
+        int Verif_Apparition(Score &Score_Joueur, int TailleEcranX, int TailleEcranY,
+        float * N3_Tab_Etat_de_Modif);
 
 //_____________________________________________________________________________
         /**
