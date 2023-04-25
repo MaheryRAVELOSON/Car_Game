@@ -76,7 +76,7 @@ class Niveaux
         void N3_Agrandissement(Obstacle &Obs, int Indice_Pos);
 
 //_____________________________________________________________________________
-        void N3_Modif_Des_Coords(Obstacle &Obs);
+        void N3_Modif_Des_Coords(Obstacle &Obs, int Niveau_Joueur);
 
 };
 

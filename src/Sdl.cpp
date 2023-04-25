@@ -26,6 +26,8 @@ void Sdl::SdlConstructor(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
     Rendu= SDL_CreateRenderer(fenetre, -1, SDL_RENDERER_SOFTWARE);
 
 
+
+//____________________________________Texture SDL
     //initialisation de l'image de SDL2
     int imgFlags= IMG_INIT_JPG | IMG_INIT_PNG;
     if( !(IMG_Init(imgFlags) & imgFlags)) {
@@ -56,6 +58,7 @@ void Sdl::SdlConstructor(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
     }
     texture_Obs = SDL_CreateTextureFromSurface(Rendu, surface); //création d'une texture à partir de l'image
 
+
     surface = IMG_Load("data/route.jpg"); //Charger une image 
     //  !!!On ne met pas de .. devant le data !!!
     if (surface == nullptr)
@@ -63,13 +66,13 @@ void Sdl::SdlConstructor(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
         cout<<endl<<"Error: cannot load data/route.jpg"<<endl;
         exit(1);
     }
-
     texture_R = SDL_CreateTextureFromSurface(Rendu, surface); //création d'une texture à partir de l'image
     if (texture_R == nullptr)
     {
         cerr << endl << "Error: SDL_CreateTextureFromSurface" << endl << flush;
         exit(1);
     }
+//____________________________________Fin Texture SDL
 
 
 
@@ -166,7 +169,7 @@ void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
     bool fin_Jeu= false;
     while (isOpen)
     {
-        //fin_Jeu= JEU.Obs->Collision((* JEU.Ptr_Voiture));
+        fin_Jeu= JEU.Obs->Collision((* JEU.Ptr_Voiture));
             while (SDL_PollEvent(&evenement))
             {
                 switch (evenement.type)
@@ -207,7 +210,7 @@ void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
                             afficher();
                             //On recommence le jeu.
                         }
-                        if ((evenement.key.keysym.sym == SDLK_l) && (!fin_Jeu))
+                        if ((evenement.key.keysym.sym == SDLK_l))
                         {
                             isOpen = false;
                         }
@@ -219,7 +222,7 @@ void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
 //________________________________Partie de mis à jour___________________________________
         if(!fin_Jeu)
         {    
-            JEU.Niv->N3_Modif_Des_Coords((* JEU.Obs));
+            JEU.Niv->N3_Modif_Des_Coords((* JEU.Obs), JEU.Niveau);
             JEU.Niv->N1_Mouv_Verticale((* JEU.Obs));
             JEU.Niv->N2_Mouv_Horizontale((* JEU.Obs), JEU.TailleX, JEU.Niveau);
 
@@ -231,15 +234,24 @@ void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
     //----------MAJ des score
         if(JEU.Niveau<=4)
         {
-            if(JEU.Score_Joueur.score>0)
+            if(JEU.Score_Joueur.score>5)
             {
                 JEU.Niveau= 2;
-                if(JEU.Score_Joueur.score>30)
+                if(JEU.Score_Joueur.score>10)
                 {
                     JEU.Niveau= 3;
                 }
             }
         }
+    //----------------incrémentation des vitesse
+        if(JEU.Score_Joueur.score_Majoree==15)
+        {
+            JEU.Niv->N1_Deplacement += 10*JEU.Niv->N1_Deplacement/100;
+            JEU.Niv->N2_Deplacement += 10*JEU.Niv->N2_Deplacement/100;
+            JEU.Ptr_Voiture->Deplacement += 10*JEU.Ptr_Voiture->Deplacement/100;
+            JEU.Score_Joueur.score_Majoree= 0;
+
+        } 
 //____________________________Fin de la partie de mise à jour_______________________________
     }
 }

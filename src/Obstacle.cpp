@@ -228,7 +228,8 @@ float * N3_Tab_Etat_de_Modif)
 
 
             passage_possible= false;
-            Score_Joueur.score= Score_Joueur.score + 1;   
+            Score_Joueur.score= Score_Joueur.score + 1;
+            Score_Joueur.score_Majoree= Score_Joueur.score_Majoree + 1;   
             cout<<endl<<"Score: "<<Score_Joueur.score<<" de Obtacle.Verif_Apparition"
             <<endl;
 

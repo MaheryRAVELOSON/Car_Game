@@ -5,13 +5,13 @@
 Niveaux::Niveaux(int Nbr_Obstacle, float H_Obstacle)
 {
     Total_Obstacle= Nbr_Obstacle;
-    N1_Deplacement= 0.05;
-    N2_Deplacement= 0.05;
+    N1_Deplacement= 0.08;
+    N2_Deplacement= 0.08;
     N2_Tab_Direction= new int[Total_Obstacle];
     //N3_Tab_Agrandissement= new  bool[Total_Obstacle];
-    N3_Modif_Max= 5000;
+    N3_Modif_Max= 1000;
     N3_Tab_Etat_de_Modif= new float[Total_Obstacle];
-    N3_Taux_Modif= 0.01; // Doit être inf à N1 et N2 Deplacement car sinon grossi sur place
+    N3_Taux_Modif= 0.02; // Doit être inf à N1 et N2 Deplacement car sinon grossi sur place
     N3_retrecissement= true;
     N3_Premier_Boucle= true;
     N3_Etat_de_Modif = N3_Modif_Max; //Taille_obs_max = obs_initial  + N3_Modif_Max*Taux_Modif
@@ -116,9 +116,11 @@ void Niveaux::N3_Retrecissement(Obstacle &Obs, int Indice_Pos)
 }
 
 //_____________________________________________________________________________
-void Niveaux::N3_Modif_Des_Coords(Obstacle &Obs)
+void Niveaux::N3_Modif_Des_Coords(Obstacle &Obs, int Niveau_Joueur)
 {
-//_______________grocissement vers raptecissement et vice vers ça automatique
+    if(Niveau_Joueur >= 3)
+    {
+        //_______________grocissement vers raptecissement et vice vers ça automatique
         if(N3_retrecissement)
         {
             if(N3_Premier_Boucle)
@@ -181,34 +183,35 @@ void Niveaux::N3_Modif_Des_Coords(Obstacle &Obs)
 //___________________fin de l'algo.
 //___________________modification des données:
 
-    if(N3_Pair)
-    {
-        for(int i=0; i<Obs.TailleTab_Obstacle; i++)
+        if(N3_Pair)
         {
-            if((i%2)==0)
+            for(int i=0; i<Obs.TailleTab_Obstacle; i++)
             {
-                N3_Agrandissement(Obs, i);
+                if((i%2)==0)
+                {
+                    N3_Agrandissement(Obs, i);
+                }
+                else{
+                    N3_Retrecissement(Obs, i);
+                }
             }
-            else{
-                N3_Retrecissement(Obs, i);
-            }
+
         }
 
-    }
-
-    else
-    {
-        for(int i=0; i<Obs.TailleTab_Obstacle; i++)
+        else
         {
-            if((i%2)==1)
+            for(int i=0; i<Obs.TailleTab_Obstacle; i++)
             {
-                N3_Agrandissement(Obs, i);
+                if((i%2)==1)
+                {
+                    N3_Agrandissement(Obs, i);
+                }
+                else{
+                    N3_Retrecissement(Obs, i);
+                }
             }
-            else{
-                N3_Retrecissement(Obs, i);
-            }
-        }
 
+        }
     }
 
 }
