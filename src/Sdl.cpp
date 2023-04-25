@@ -9,6 +9,19 @@ void Sdl::SdlConstructor(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
         SDL_Quit();
         exit(1);
     }
+    else
+    {
+        SDL_Init(SDL_INIT_AUDIO);//initilisation de  SDL2_mixer pour l'audio
+        Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048);
+        music = Mix_LoadMUS("data/music.mp3");  //chargement du fichier audio
+        if(!music)
+        {
+            cout<<"erreur de chargement du fichier audio : " << Mix_GetError()<< endl;
+            exit(1);
+        }
+        Mix_PlayMusic(music,-1); // lecture de  la musique en boucle 
+
+    }
 
     fenetre = nullptr;
     fenetre = SDL_CreateWindow("CarGame", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
@@ -83,7 +96,9 @@ void Sdl::SdlConstructor(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
 
 //_____________________________________________________________________________
 void Sdl::SdlDestuctor(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface)
-{
+{   
+    Mix_FreeMusic(music);
+    Mix_CloseAudio();
     SDL_DestroyRenderer(Rendu);
     SDL_DestroyWindow(fenetre);
     SDL_DestroyTexture(texture_V);
@@ -170,6 +185,10 @@ void Sdl::afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface
     while (isOpen)
     {
         fin_Jeu= JEU.Obs->Collision((* JEU.Ptr_Voiture));
+        if(fin_Jeu)
+        {
+            Mix_HaltMusic();
+        }
             while (SDL_PollEvent(&evenement))
             {
                 switch (evenement.type)

@@ -8,6 +8,7 @@
  * @copyright Copyright (c) 2023
  * 
  */
+
 #ifndef SDL_H
 #define SDL_H
 
@@ -21,6 +22,7 @@
 
 #include <SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
 
 #include "Jeu.h"
 
@@ -40,6 +42,8 @@ class Sdl
         SDL_Texture* texture_V;
         SDL_Texture* texture_Obs;
         SDL_Texture* texture_R;
+        Mix_Music* music;
+
 
 //_____________________________________________________________________________
         /**

@@ -29,7 +29,7 @@ MAIN_SDL_OUT = bin/Main_Sdl
 MAIN_TXT_OUT = bin/Main_Txt
 
 INCLUDE_DIR_SDL = -I/usr/include/SDL2
-PETIT_L = -lSDL2 -lSDL2_ttf -lSDL2_image
+PETIT_L = -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer
 
 
 all: $(MAIN_OUT) $(MAIN_SDL_OUT) $(MAIN_TXT_OUT)
