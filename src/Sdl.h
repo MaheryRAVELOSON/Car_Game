@@ -44,6 +44,12 @@ class Sdl
         SDL_Texture* texture_R;
         Mix_Music* music;
 
+        SDL_Color textColor;
+        TTF_Font* font ;
+        SDL_Texture* textTexture;
+        SDL_Rect textRect;
+        SDL_Surface* textSurface ;
+
 
 //_____________________________________________________________________________
         /**
