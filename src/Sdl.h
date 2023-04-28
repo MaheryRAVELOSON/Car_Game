@@ -39,7 +39,13 @@ class Sdl
 {
     public:
         Jeu JEU;
+
+        SDL_Window *fenetre;
+        SDL_Renderer *Rendu;
+        SDL_Surface *surface;
+
         SDL_Texture* texture_V;
+        SDL_Texture* texture_V2;
         SDL_Texture* texture_Obs;
         SDL_Texture* texture_R;
         Mix_Music* music;
@@ -57,31 +63,15 @@ class Sdl
          * nullptr
          * 
          */
+        Sdl();
+
+//_____________________________________________________________________________
+        /**
+         * @brief Ce destructeur pointe toute les pointeur donnée membre sur
+         * nullptr
+         * 
+         */
         ~Sdl();
-
-//_____________________________________________________________________________________
-        /**
-         * @brief Cette procedure permet d'initialiser les bibliothèque de
-         * SDL2 qu'on veut utiliser. Il permet aussi de créer la fenêtre SDL.
-         * 
-         * @param fenetre : un pointeur qui va contenir l'adresse memoire de la
-         * fenetre SDL une fois qu'il sera créée dans cette fonction
-         * @param Rendu: un pointeur qui va contenir l'adresse memoire du rendu
-         * SDL une fois qu'il sera créée dans cette fonction
-         */
-        void SdlConstructor(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface);
-
-//_____________________________________________________________________________________
-        /**
-         * @brief Cette procedure permet de desallouer tout les memoire alloué
-         * par SDL.
-         * 
-         * @param fenetre : un pointeur qui va contenir l'adresse memoire de l
-         * fenetre SDL qui a été créée.
-         * @param Rendu: : un pointeur qui va contenir l'adresse memoire du
-         * rendu SDL qui a été créée.
-         */
-        void SdlDestuctor(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface);
 
 
 //_____________________________________________________________________________
@@ -93,7 +83,7 @@ class Sdl
          * @param Rendu: un pointeur qui va contenir l'adresse memoire du rendu
          * SDL qui a été créée. 
          */
-        void MAJ_SDL(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface);
+        void MAJ_SDL();
 
 //_______________________________________________un pointeur de type classe Voiture______________________________
         /**
@@ -106,7 +96,7 @@ class Sdl
          * @param Rendu: un pointeur qui va contenir l'adresse memoire du rendu
          * SDL qui a été créée.
          */
-        void afficherBoucle(SDL_Window* &fenetre, SDL_Renderer* &Rendu, SDL_Surface* &surface);
+        void afficherBoucle();
 
 //_____________________________________________________________________________
         /**

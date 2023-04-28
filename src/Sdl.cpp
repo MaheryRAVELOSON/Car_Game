@@ -1,8 +1,12 @@
 #include "Sdl.h"
 
 //_____________________________________________________________________________
-void Sdl::SdlConstructor(SDL_Window *&fenetre, SDL_Renderer *&Rendu, SDL_Surface *&surface)
+Sdl::Sdl()
 {
+    fenetre = nullptr;
+    Rendu = nullptr;
+    surface = nullptr;
+    
     if (SDL_Init(SDL_INIT_VIDEO) < 0) // SDL_INIT_EVERYTHING aussi
     {
         cout << endl
@@ -48,15 +52,25 @@ void Sdl::SdlConstructor(SDL_Window *&fenetre, SDL_Renderer *&Rendu, SDL_Surface
         exit(1);
     }
 
-    surface = IMG_Load("data/Car3.png"); // Charger une image
+    surface = IMG_Load("data/V.png"); // Charger une image
     //  !!!On ne met pas de .. devant le data !!!
     if (surface == nullptr)
     {
         cout << endl
-             << "Error: cannot load data/Car3.png" << endl;
+             << "Error: cannot load data/V.png" << endl;
         exit(1);
     }
     texture_V = SDL_CreateTextureFromSurface(Rendu, surface); // création d'une texture à partir de l'image
+
+    surface = IMG_Load("data/V2.png"); // Charger une image
+    //  !!!On ne met pas de .. devant le data !!!
+    if (surface == nullptr)
+    {
+        cout << endl
+             << "Error: cannot load data/V2.png" << endl;
+        exit(1);
+    }
+    texture_V2 = SDL_CreateTextureFromSurface(Rendu, surface); // création d'une texture à partir de l'image
 
     surface = IMG_Load("data/obs.png"); // Charger une image
     //  !!!On ne met pas de .. devant le data !!!
@@ -104,7 +118,7 @@ void Sdl::SdlConstructor(SDL_Window *&fenetre, SDL_Renderer *&Rendu, SDL_Surface
 }
 
 //_____________________________________________________________________________
-void Sdl::SdlDestuctor(SDL_Window *&fenetre, SDL_Renderer *&Rendu, SDL_Surface *&surface)
+Sdl::~Sdl()
 {   
     TTF_CloseFont(font);
     SDL_FreeSurface(textSurface);
@@ -117,6 +131,7 @@ void Sdl::SdlDestuctor(SDL_Window *&fenetre, SDL_Renderer *&Rendu, SDL_Surface *
     SDL_DestroyRenderer(Rendu);
     SDL_DestroyWindow(fenetre);
     SDL_DestroyTexture(texture_V);
+    SDL_DestroyTexture(texture_V2);
     SDL_DestroyTexture(texture_Obs);
     SDL_DestroyTexture(texture_R);
     SDL_FreeSurface(surface);
@@ -125,7 +140,7 @@ void Sdl::SdlDestuctor(SDL_Window *&fenetre, SDL_Renderer *&Rendu, SDL_Surface *
 }
 
 //_____________________________________________________________________________
-void Sdl::MAJ_SDL(SDL_Window *&fenetre, SDL_Renderer *&Rendu, SDL_Surface *&surface)
+void Sdl::MAJ_SDL()
 {
     //----------nettoyage de la fenêtre
 
@@ -150,7 +165,15 @@ void Sdl::MAJ_SDL(SDL_Window *&fenetre, SDL_Renderer *&Rendu, SDL_Surface *&surf
     // SDL_SetRenderDrawColor(Rendu, 0, 0, 255, 255); //définition de la couleur du pt
     // SDL_RenderFillRect(Rendu, &VarRect);
 
-    SDL_RenderCopy(Rendu, texture_V, NULL, &VarRect);
+    if(JEU.Niveau<=2)
+    {
+        SDL_RenderCopy(Rendu, texture_V, NULL, &VarRect);
+    }
+    else
+    {
+        SDL_RenderCopy(Rendu, texture_V2, NULL, &VarRect);
+    }
+
 
     for (int i = 0; i < JEU.Obs->TailleTab_Obstacle; i++)
     {
@@ -196,7 +219,7 @@ void Sdl::MAJ_SDL(SDL_Window *&fenetre, SDL_Renderer *&Rendu, SDL_Surface *&surf
 }
 
 //_____________________________________________________________________________
-void Sdl::afficherBoucle(SDL_Window *&fenetre, SDL_Renderer *&Rendu, SDL_Surface *&surface)
+void Sdl::afficherBoucle()
 {
     sleep(1);
     SDL_Event evenement;
@@ -268,7 +291,7 @@ void Sdl::afficherBoucle(SDL_Window *&fenetre, SDL_Renderer *&Rendu, SDL_Surface
             JEU.Obs->Verif_Apparition(JEU.Score_Joueur, JEU.TailleX, JEU.TailleY,
                                       JEU.Niv->N3_Tab_Etat_de_Modif);
         }
-        MAJ_SDL(fenetre, Rendu, surface);
+        MAJ_SDL();
         // cout<<endl<<JEU.Obs->Tab_Obstacle[0].getX1()<<endl;
         //----------MAJ des score
         if (JEU.Niveau <= 4)
@@ -283,13 +306,14 @@ void Sdl::afficherBoucle(SDL_Window *&fenetre, SDL_Renderer *&Rendu, SDL_Surface
             }
         }
         //----------------incrémentation des vitesse
-        if (JEU.Score_Joueur.score_Majoree == 15)
+        if ((JEU.Score_Joueur.score_Majoree >= 3) && (JEU.Niveau>=3))
         {
             JEU.Niv->N1_Deplacement += 10 * JEU.Niv->N1_Deplacement / 100;
             JEU.Niv->N2_Deplacement += 10 * JEU.Niv->N2_Deplacement / 100;
             JEU.Ptr_Voiture->Deplacement += 10 * JEU.Ptr_Voiture->Deplacement / 100;
             JEU.Score_Joueur.score_Majoree = 0;
         }
+        cout<<endl<<"N1_deplacement de SDL.cpp/affiche_boucle: "<<JEU.Niv->N1_Deplacement<<endl;
         //____________________________Fin de la partie de mise à jour_______________________________
     }
 }
@@ -297,17 +321,6 @@ void Sdl::afficherBoucle(SDL_Window *&fenetre, SDL_Renderer *&Rendu, SDL_Surface
 //_____________________________________________________________________________
 void Sdl::afficher()
 {
-    SDL_Window *fenetre = nullptr;
-    SDL_Renderer *Rendu = nullptr;
-    SDL_Surface *surface = nullptr;
-    SdlConstructor(fenetre, Rendu, surface);
-    afficherBoucle(fenetre, Rendu, surface);
-    SdlDestuctor(fenetre, Rendu, surface);
-}
+    afficherBoucle();
 
-//_____________________________________________________________________________
-Sdl::~Sdl()
-{
-
-    // Rien de special
 }
