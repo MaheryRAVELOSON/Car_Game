@@ -27,7 +27,7 @@ using namespace std;
 
 //_____________________________________________________________________________
 /**
- * @brief La classe obstacle contient quatres données membre: 
+ * @brief La classe obstacle contient quatres données membres: 
  * \n Un pointeur de tableau de position "Tab_Obstacle" qui contiendra les
  * coordonnées de chaque obstacles.
  * \n Un entier "Distance_Obstacle" qui contiendra la distance minimum entre deux
@@ -54,24 +54,24 @@ class Obstacle
         /**
          * @brief Ce constructeur alloue un tableau de Position de une ligne , et
          * de "TailleTab_Obstacle" colonne, qui sera par défaut, égale à 20 si on
-         * ne lui passe pas en paramettre une autre entier.
+         * ne lui passe pas en parametre un autre entier.
          * il initialise  le "passage_possible" à false.
-         * "Distance_Obstacle" sera par défaut égale à la donée membres "Rayon" de
+         * "Distance_Obstacle" sera par défaut égale à la donnée membre "Rayon" de
          * la donnée membre classe Position de la donnée membre classe Voiture de la
          * classe Jeu.
          * le "Deplacement_Obstacle" qui sera par défaut à 0.2
          * @param TailleTab: un entier qui correspondra au nombre de case du
          * tableau de Position à alloué
-         * @param RayonVoiture: un entier qui correspendra au donnée membre "rayon"
-         * de la Voiture qui est lui un donné membre de la classe Jeu.
-         * @param Deplacement_Voiture: un entier qui correspendra au donnée membre
-         * "Deplacement" de la Voiture qui est lui un donné membre de la classe Jeu.
+         * @param RayonVoiture: un entier qui correspondra au donnée membre "rayon"
+         * de la Voiture qui est lui une donné membre de la classe Jeu.
+         * @param Deplacement_Voiture: un entier qui correspondra au donnée membre
+         * "Deplacement" de la Voiture qui est lui une donné membre de la classe Jeu.
          */
-        Obstacle(int TailleTab=20, int RayonVoiture=0, int Deplacement_Voiture=0);
+        Obstacle(int TailleTab=20, int Largeur_Voiture=0, int Deplacement_Voiture=0);
 
 //_____________________________________________________________________________
         /**
-         * @brief cette procédure crée des coordonnée pour chaque case du tableau
+         * @brief cette procédure crée des coordonnées pour chaque case du tableau
          * d'obstacle.
          * @param TailleEcranX: un entier qui sera égale à la donnée membre "TailleX"
          * de la classe jeu 
@@ -94,7 +94,7 @@ class Obstacle
 
 //_____________________________________________________________________________
         /**
-         * @brief Ce destructeur désalloue toute les cases mémoires alloué par
+         * @brief Ce destructeur désalloue toutes les cases mémoires allouées par
          * la donnée membre Tab_Obstacle
          * 
          */

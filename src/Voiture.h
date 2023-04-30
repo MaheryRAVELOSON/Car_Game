@@ -32,7 +32,7 @@ class Voiture
 //_____________________________________________________________________________
         /**
          * @brief Ce constructeur initialise la position de la voiture par
-         * rapport au taille de l'écran
+         * rapport à la taille de l'écran
          * 
          * @param TailleEcranX: un entier qui correspond au largeur de l'écran
          * @param TailleEcranY: un entier qui correspond au longueur de l'écran
@@ -41,7 +41,7 @@ class Voiture
 
 //_____________________________________________________________________________
         /**
-         * @brief Ce déssructeur désaloue tous les allocations des données
+         * @brief Ce déstructeur désaloue tous les allocations des données
          * membres dans le tas.
          * 
          */

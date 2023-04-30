@@ -1,7 +1,7 @@
 #include "Obstacle.h"
 
 //_____________________________________________________________________________
-Obstacle::Obstacle(int TailleTab, int RayonVoiture, int Deplacement_Voiture)
+Obstacle::Obstacle(int TailleTab, int Largeur_Voiture, int Deplacement_Voiture)
 {
     srand (time(NULL));  /* initialize random seed: */
     
@@ -9,7 +9,7 @@ Obstacle::Obstacle(int TailleTab, int RayonVoiture, int Deplacement_Voiture)
 
     Tab_Obstacle= new Position[TailleTab_Obstacle];
 
-    Distance_Obstacle = RayonVoiture;
+    Distance_Obstacle = Largeur_Voiture;
 
     passage_possible = false;
     
@@ -41,6 +41,11 @@ void Obstacle::Init_Obstacle(int TailleEcranX)
     passage= Distance_Obstacle + Distance_Obstacle/pourcent;
     //on laissera une passage de 150% de la taille de la voiture
     val = TailleEcranX - passage -100 - val;
+
+    if(val<=0)
+    {
+        val= 1;
+    }
 
     val= (rand()%(val)) + Tab_Obstacle[0].getX1() + 100;
     // "+100" => chaque obstacle aura une taille à 100 pixel au minimum.
@@ -106,28 +111,23 @@ void Obstacle::Init_Obstacle(int TailleEcranX)
             passage_possible= false;
 
             assert((i-1)>=0);
-            //if (Tab_Obstacle[i].getX1()<Tab_Obstacle[i-1].getX1())
-            //{
-                passage= Distance_Obstacle + Distance_Obstacle/(pourcent+1);
-                if (Tab_Obstacle[i].getX1()>=passage)
+
+            passage= Distance_Obstacle + Distance_Obstacle/(pourcent+1);
+            if (Tab_Obstacle[i].getX1()>=passage)
+            {
+                passage_possible= true;
+            }
+
+            if (!passage_possible)
+            {
+                assert((i-1)>=0);
+
+                if (Tab_Obstacle[i].getX2()<= (TailleEcranX - passage))
                 {
                     passage_possible= true;
-                }
-            //}
-            //else
-            //{
-                if (!passage_possible)
-                {
-                    assert((i-1)>=0);
-                    //if (Tab_Obstacle[i].getX2()>Tab_Obstacle[i-1].getX2())
-                    //{
-                        if (Tab_Obstacle[i].getX2()<= (TailleEcranX - passage))
-                        {
-                            passage_possible= true;
-                        }
-                    //}
-                }
-            //}
+                    }
+            }
+
 
         }while(passage_possible != true);
 
@@ -212,8 +212,7 @@ float * N3_Tab_Etat_de_Modif)
            assert(passage_possible == true);
 
             
-            val = Distance_Obstacle; //Rappel: "Distance_Obstacle" = la rayon de la Voiture
-            val *= 6;
+            val = Distance_Obstacle *6 ; //Rappel: "Distance_Obstacle" = la largeur de la Voiture
 
             passage= Distance_Obstacle/(pourcent+1);
             
@@ -221,17 +220,21 @@ float * N3_Tab_Etat_de_Modif)
             Tab_Obstacle[i].setY1(Tab_Obstacle[i].getY2()-Distance_Obstacle);
             N3_Tab_Etat_de_Modif[i]= 0.0;
 
+            /*
             cout<<endl<<"Distance entre 2 obs (normalement 360 pour Distance_Obs = "
             <<"LargeurVoiture = 10 pourcent de 600x800 = 60): "
             <<Tab_Obstacle[j].getY1() - Tab_Obstacle[i].getY2() + N3_Tab_Etat_de_Modif[j]
             <<" de Obtacle.Verif_Apparition"<<endl;
+            */
 
 
             passage_possible= false;
             Score_Joueur.score= Score_Joueur.score + 1;
             Score_Joueur.score_Majoree= Score_Joueur.score_Majoree + 1;   
+            /*
             cout<<endl<<"Score: "<<Score_Joueur.score<<" de Obtacle.Verif_Apparition"
             <<endl;
+            */
 
             Tab_Obstacle[i].Largeur= Tab_Obstacle[i].getX2() - Tab_Obstacle[i].getX1();
             Tab_Obstacle[i].Hauteur= Tab_Obstacle[i].getY2() - Tab_Obstacle[i].getY1();

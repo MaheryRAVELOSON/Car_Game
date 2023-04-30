@@ -39,7 +39,7 @@ class Niveaux
 
 //_____________________________________________________________________________
         /**
-         * @brief Ce constructeur initialise le donnée membre "Deplacement_Niveau"
+         * @brief Ce destructeur initialise le donnée membre "Deplacement_Niveau"
          * 
          */
         ~Niveaux();
