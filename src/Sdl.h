@@ -47,7 +47,11 @@ class Sdl
         SDL_Texture* texture_V;
         SDL_Texture* texture_V2;
         SDL_Texture* texture_Obs;
-        SDL_Texture* texture_R;
+        SDL_Texture* texture_R0;
+        SDL_Texture* texture_R1;
+        SDL_Texture* texture_R2;
+        SDL_Texture* texture_R3;
+        int Indice_Texture_R;
         Mix_Music* music;
 
         SDL_Color textColor;

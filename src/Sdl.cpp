@@ -6,6 +6,7 @@ Sdl::Sdl()
     fenetre = nullptr;
     Rendu = nullptr;
     surface = nullptr;
+    Indice_Texture_R= -1;
     
     if (SDL_Init(SDL_INIT_VIDEO) < 0) // SDL_INIT_EVERYTHING aussi
     {
@@ -16,6 +17,7 @@ Sdl::Sdl()
     }
     else
     {
+//-----------------------------Partie Audio SDL
         SDL_Init(SDL_INIT_AUDIO); // initilisation de  SDL2_mixer pour l'audio
         Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
         music = Mix_LoadMUS("data/music.mp3"); // chargement du fichier audio
@@ -25,6 +27,7 @@ Sdl::Sdl()
             exit(1);
         }
         Mix_PlayMusic(music, -1); // lecture de  la musique en boucle
+//----------------------------Fin de la partie audio
     }
 
     fenetre = nullptr;
@@ -82,16 +85,67 @@ Sdl::Sdl()
     }
     texture_Obs = SDL_CreateTextureFromSurface(Rendu, surface); // création d'une texture à partir de l'image
 
-    surface = IMG_Load("data/route.jpg"); // Charger une image
+    surface = IMG_Load("data/R0.png"); // Charger une image
     //  !!!On ne met pas de .. devant le data !!!
     if (surface == nullptr)
     {
         cout << endl
-             << "Error: cannot load data/route.jpg" << endl;
+             << "Error: cannot load data/R0.png" << endl;
         exit(1);
     }
-    texture_R = SDL_CreateTextureFromSurface(Rendu, surface); // création d'une texture à partir de l'image
-    if (texture_R == nullptr)
+    texture_R0 = SDL_CreateTextureFromSurface(Rendu, surface); // création d'une texture à partir de l'image
+    if (texture_R0 == nullptr)
+    {
+        cerr << endl
+             << "Error: SDL_CreateTextureFromSurface" << endl
+             << flush;
+        exit(1);
+    }
+
+    surface = IMG_Load("data/R1.png"); // Charger une image
+    //  !!!On ne met pas de .. devant le data !!!
+    if (surface == nullptr)
+    {
+        cout << endl
+             << "Error: cannot load data/R1.png" << endl;
+        exit(1);
+    }
+    texture_R1 = SDL_CreateTextureFromSurface(Rendu, surface); // création d'une texture à partir de l'image
+    if (texture_R1 == nullptr)
+    {
+        cerr << endl
+             << "Error: SDL_CreateTextureFromSurface" << endl
+             << flush;
+        exit(1);
+    }
+
+    surface = IMG_Load("data/R2.png"); // Charger une image
+    //  !!!On ne met pas de .. devant le data !!!
+    if (surface == nullptr)
+    {
+        cout << endl
+             << "Error: cannot load data/R2.png" << endl;
+        exit(1);
+    }
+    texture_R2 = SDL_CreateTextureFromSurface(Rendu, surface); // création d'une texture à partir de l'image
+    if (texture_R2 == nullptr)
+    {
+        cerr << endl
+             << "Error: SDL_CreateTextureFromSurface" << endl
+             << flush;
+        exit(1);
+    }
+
+    surface = IMG_Load("data/R3.png"); // Charger une image
+    //  !!!On ne met pas de .. devant le data !!!
+    if (surface == nullptr)
+    {
+        cout << endl
+             << "Error: cannot load data/R3.png" << endl;
+        exit(1);
+    }
+    texture_R3 = SDL_CreateTextureFromSurface(Rendu, surface); // création d'une texture à partir de l'image
+    if (texture_R3 == nullptr)
     {
         cerr << endl
              << "Error: SDL_CreateTextureFromSurface" << endl
@@ -133,7 +187,10 @@ Sdl::~Sdl()
     SDL_DestroyTexture(texture_V);
     SDL_DestroyTexture(texture_V2);
     SDL_DestroyTexture(texture_Obs);
-    SDL_DestroyTexture(texture_R);
+    SDL_DestroyTexture(texture_R0);
+    SDL_DestroyTexture(texture_R1);
+    SDL_DestroyTexture(texture_R2);
+    SDL_DestroyTexture(texture_R3);
     SDL_FreeSurface(surface);
     IMG_Quit();
     SDL_Quit();
@@ -149,7 +206,28 @@ void Sdl::MAJ_SDL()
     // SDL_RenderClear(Rendu);  // nettoyage de la fenêtre
     // on remplis toute la fentre par le rendu
 
-    SDL_RenderCopy(Rendu, texture_R, NULL, NULL);
+    Indice_Texture_R ++;
+    if(Indice_Texture_R>3)
+    {
+        Indice_Texture_R= 0;
+    }
+
+    if(Indice_Texture_R==0)
+    {
+        SDL_RenderCopy(Rendu, texture_R0, NULL, NULL);
+    }
+    if(Indice_Texture_R==1)
+    {
+        SDL_RenderCopy(Rendu, texture_R1, NULL, NULL);
+    }
+    if(Indice_Texture_R==2)
+    {
+        SDL_RenderCopy(Rendu, texture_R2, NULL, NULL);
+    }
+    if(Indice_Texture_R==3)
+    {
+        SDL_RenderCopy(Rendu, texture_R3, NULL, NULL);
+    }
 
     /*!!!!Remarque: le SetRenderDrawColor doit absolument avant le RenderClear*/
 
