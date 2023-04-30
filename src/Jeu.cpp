@@ -13,8 +13,6 @@ Jeu::Jeu(int X, int Y)
     TailleY= Y;
     Niveau = 1;
     Ptr_Voiture= new Voiture(TailleX,TailleY);
-    //Score_Joueur= new Score;
-    Score_Joueur.score=0;
 
     Obs= new Obstacle(20, Ptr_Voiture->Voiture_Position->Largeur, Ptr_Voiture->Deplacement);
 
