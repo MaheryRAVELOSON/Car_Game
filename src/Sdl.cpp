@@ -205,29 +205,8 @@ void Sdl::MAJ_SDL()
     // mettre le vert comme rendu: Remplir l'écran de vert: le fond
     // SDL_RenderClear(Rendu);  // nettoyage de la fenêtre
     // on remplis toute la fentre par le rendu
-
-    Indice_Texture_R ++;
-    if(Indice_Texture_R>3)
-    {
-        Indice_Texture_R= 0;
-    }
-
-    if(Indice_Texture_R==0)
-    {
-        SDL_RenderCopy(Rendu, texture_R0, NULL, NULL);
-    }
-    if(Indice_Texture_R==1)
-    {
-        SDL_RenderCopy(Rendu, texture_R1, NULL, NULL);
-    }
-    if(Indice_Texture_R==2)
-    {
-        SDL_RenderCopy(Rendu, texture_R2, NULL, NULL);
-    }
-    if(Indice_Texture_R==3)
-    {
-        SDL_RenderCopy(Rendu, texture_R3, NULL, NULL);
-    }
+    SDL_RenderCopy(Rendu, texture_R0, NULL, NULL);
+    
 
     /*!!!!Remarque: le SetRenderDrawColor doit absolument avant le RenderClear*/
 
