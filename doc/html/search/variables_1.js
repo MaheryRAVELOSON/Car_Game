@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['niveau_142',['Niveau',['../classJeu.html#a6be742b6a633fe6369867134b2f28b62',1,'Jeu']]],
-  ['niveau_5fsdl_143',['Niveau_Sdl',['../classSdl.html#a68cb544fd4417610efa81f08b45960a6',1,'Sdl']]]
+  ['fenetre_195',['fenetre',['../classSdl.html#afec3666b9222428ed46dfe6c26ec2d5e',1,'Sdl']]],
+  ['font_196',['font',['../classSdl.html#aa612634925b7df9e374ff64faee675bc',1,'Sdl']]]
 ];

@@ -43,8 +43,8 @@ void Jeu::TestRegression()
 
     assert(PtrJeu->TailleX==600);
 
-    (* PtrJeu).TailleY=400;
-    assert((* PtrJeu).TailleY==400);
+    (* PtrJeu).TailleY=800;
+    assert((* PtrJeu).TailleY==800);
     
     PtrJeu->Ptr_Voiture->Deplacer_Gauche();
     assert(PtrJeu->Ptr_Voiture->Voiture_Position->getX1()==(PtrJeu->TailleX)/2 - 

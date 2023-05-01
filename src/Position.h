@@ -14,7 +14,9 @@
 //_____________________________________________________________________________
 /**
  * @brief Cette classe contient les coordoné d'une position et les fonctions
- * membre qui permettent de les manipuler
+ * membre qui permettent de les manipuler.
+ * \n Ses données membres privées sont: X1, X2, Y1, Y2 qui sont touts des float.
+ * \n Ses données membres public sont: Largeur et Hauteur qui sont aussi des float.
  * 
  */
 class Position
@@ -24,9 +26,6 @@ class Position
         float Y1;
         float X2;
         float Y2;
-        float CentreX;
-        float CentreY;
-        float Rayon; //distance entre un pair de XY et le centre
     public:
         float Largeur;
         float Hauteur;
@@ -40,18 +39,9 @@ class Position
 //_____________________________________________________________________________
         /**
          * @brief Cette procedure permet de modifier la valeur de la donnée
-         * membre Rayon
-         * 
-         * @param n : un int qui contient la nouvelle valeur de Rayon.
-         */
-        void setRayon(float n);
-
-//_____________________________________________________________________________
-        /**
-         * @brief Cette procedure permet de modifier la valeur de la donnée
          * membre X1
          * 
-         * @param n : un int qui contient la nouvelle valeur de X1.
+         * @param n : un float qui contient la nouvelle valeur de X1.
          */
         void setX1(float n);
 
@@ -60,7 +50,7 @@ class Position
          * @brief Cette procedure permet de modifier la valeur de la donnée
          * membre Y1
          * 
-         * @param n : un int qui contient la nouvelle valeur de Y1.
+         * @param n : un float qui contient la nouvelle valeur de Y1.
          */
         void setY1(float n);
 
@@ -69,7 +59,7 @@ class Position
          * @brief Cette procedure permet de modifier la valeur de la donnée
          * membre X2
          * 
-         * @param n : un int qui contient la nouvelle valeur de X2.
+         * @param n : un float qui contient la nouvelle valeur de X2.
          */
         void setX2(float n);
 
@@ -78,82 +68,37 @@ class Position
          * @brief Cette procedure permet de modifier la valeur de la donnée
          * membre Y2
          * 
-         * @param n : un int qui contient la nouvelle valeur de Y2.
+         * @param n : un float qui contient la nouvelle valeur de Y2.
          */
         void setY2(float n);
-
-//_____________________________________________________________________________
-        /**
-         * @brief Cette procedure permet de modifier la valeur de la donnée
-         * membre CentreX
-         * 
-         * @param n : un int qui contient la nouvelle valeur de CentreX.
-         */
-        void setCentreX(float n);
-
-//_____________________________________________________________________________
-        /**
-         * @brief Cette procedure permet de modifier la valeur de la donnée
-         * membre CentreY
-         * 
-         * @param n : un int qui contient la nouvelle valeur de CentreY.
-         */
-        void setCentreY(float n);
 //_____________________________________________________________________________
         /**
         * @brief cette fonction renvoie la valeur de la donnée membre X1
-        * @return X1: entier : la fonction retourne la valeur du donnée membre 
+        * @return X1: float : la fonction retourne la valeur du donnée membre 
         * X1
         */
         float getX1();
 //_____________________________________________________________________________
         /**
         * @brief cette fonction renvoie la valeur de la donnée membre X2
-        * @return X2: entier : la fonction retourne la valeur du donnée membre 
+        * @return X2: float : la fonction retourne la valeur du donnée membre 
         * X2
         */
         float getX2();
 //_____________________________________________________________________________
         /**
         * @brief cette fonction renvoie la valeur de la donnée membre Y1
-        * @return Y1: entier : la fonction retourne la valeur du donnée membre 
+        * @return Y1: float : la fonction retourne la valeur du donnée membre 
         * Y1
         */
         float getY1();
 //_____________________________________________________________________________
         /**
         * @brief cette fonction renvoie la valeur de la donnée membre Y2
-        * @return Y2: entier : la fonction retourne la valeur du donnée membre 
+        * @return Y2: float : la fonction retourne la valeur du donnée membre 
         * Y2
         */
         float getY2();
-
-//_____________________________________________________________________________
-        /**
-         * @brief cette fonction renvoie la valeur de la donnée membre CentreX
-         * 
-         * @return CentreY: entier : la fonction retourne la valeur du donnée
-         * membre CentreX
-         */
-        float getCentreX();
-
-//_____________________________________________________________________________
-        /**
-         * @brief cette fonction renvoie la valeur de la donnée membre CentreY
-         * 
-         * @return CentreY: entier : la fonction retourne la valeur du donnée
-         * membre CentreY
-         */
-        float getCentreY();
-
-//_____________________________________________________________________________
-        /**
-         * @brief cette fonction renvoie la valeur de la donnée membre Rayon
-         * 
-         * @return Rayon: entier : la fonction retourne la valeur du donnée
-         * membre Rayon
-         */
-        float getRayon();
 
 //_____________________________________________________________________________
         /**

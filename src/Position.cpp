@@ -15,9 +15,6 @@ Position::Position()
     Y2=0.0;
     Largeur= 0.0;
     Hauteur= 0.0;
-    CentreX=0.0;
-    CentreY=0.0;
-    Rayon= 0.0;
     
 }
 
@@ -53,36 +50,6 @@ void Position::setY2(float n)
 
 }
 
-
-//_____________________________________________________________________________
-void Position::setCentreX(float n)
-{
-    CentreX=n;
-    X1= CentreX - Rayon;
-    X2= CentreX + Rayon;
-}
-
-//_____________________________________________________________________________
-void Position::setCentreY(float n)
-{
-    CentreY = n;
-    Y1= CentreY - Rayon;
-    Y2= CentreY + Rayon;
-}
-
-
-//_____________________________________________________________________________
-
-void Position::setRayon(float n)
-{ 
-    Rayon=n;
-    X1= CentreX - Rayon;
-    X2= CentreX + Rayon;
-    Y1= CentreY - Rayon;
-    Y2= CentreY + Rayon;
-
-}
-
 //_____________________________________________________________________________
 float Position::getX1()
 {
@@ -108,43 +75,14 @@ float Position::getY2()
 }
 
 //_____________________________________________________________________________
-float Position::getCentreX()
-{
-    return CentreX;
-}
-
-//_____________________________________________________________________________
-float Position::getCentreY()
-{
-    return CentreY;
-}
-
-
-//_____________________________________________________________________________
-float Position::getRayon()
-{
-    return Rayon;
-}
-
-//_____________________________________________________________________________
 void Position::TestRegression()
 {
     Position * PtrPos= new Position;
-
-
-    PtrPos->setCentreX(5);
-    (* PtrPos).setCentreY(5);
-
-    assert(PtrPos->getCentreX()==5);
-    assert((* PtrPos).getCentreY()==5);
-
-    PtrPos->setRayon(5);
 
     assert(PtrPos->getX1()==0);
     assert((* PtrPos).getY1()==0);
     assert(PtrPos->getX2()==10);
     assert((* PtrPos).getY2()==10);
-    assert(PtrPos->getRayon()==5);
 
     cout<<endl<<endl<<"--Test de Regression 'Position' terminée--"<<endl<<endl;
 

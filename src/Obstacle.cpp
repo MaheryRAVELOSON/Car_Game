@@ -31,6 +31,7 @@ void Obstacle::Init_Obstacle(int TailleEcranX)
    int val= 0;
    int passage;
    int pourcent=2;
+   int Largeur_Min_Obstacle= TailleEcranX*0.16;
 //------------Initialisation de la première case
    
    do {
@@ -40,14 +41,14 @@ void Obstacle::Init_Obstacle(int TailleEcranX)
 
     passage= Distance_Obstacle + Distance_Obstacle/pourcent;
     //on laissera une passage de 150% de la taille de la voiture
-    val = TailleEcranX - passage -100 - val;
+    val = TailleEcranX - passage - Largeur_Min_Obstacle - val;
 
     if(val<=0)
     {
         val= 1;
     }
 
-    val= (rand()%(val)) + Tab_Obstacle[0].getX1() + 100;
+    val= (rand()%(val)) + Tab_Obstacle[0].getX1() + Largeur_Min_Obstacle;
     // "+100" => chaque obstacle aura une taille à 100 pixel au minimum.
     Tab_Obstacle[0].setX2(val);
     assert(Tab_Obstacle[0].getX2()<=TailleEcranX);
@@ -92,7 +93,7 @@ void Obstacle::Init_Obstacle(int TailleEcranX)
 
             passage= Distance_Obstacle + Distance_Obstacle/pourcent;
             //on laissera une passage de 150% de la taille de la voiture
-            val = TailleEcranX - passage - 100 - val;
+            val = TailleEcranX - passage - Largeur_Min_Obstacle - val;
 
             if(val<=0)
             {
@@ -100,7 +101,7 @@ void Obstacle::Init_Obstacle(int TailleEcranX)
             }
             
 
-            val= (rand()%(val)) + Tab_Obstacle[i].getX1() + 100;
+            val= (rand()%(val)) + Tab_Obstacle[i].getX1() + Largeur_Min_Obstacle;
             // "+100" => chaque obstacle aura une taille à 100 pixel au minimum.
             Tab_Obstacle[i].setX2(val);
             assert(Tab_Obstacle[i].getX2()<=TailleEcranX);

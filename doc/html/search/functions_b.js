@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['_7ejeu_138',['~Jeu',['../classJeu.html#a9cd19e73df169d7f09397be61ba8548c',1,'Jeu']]],
-  ['_7esdl_139',['~Sdl',['../classSdl.html#a855bbadc37c0f1e224fb1c8c1ab579d4',1,'Sdl']]],
-  ['_7evoiture_140',['~Voiture',['../classVoiture.html#afe85820a993b6908d0fdb524245e5133',1,'Voiture']]]
+  ['termclear_179',['termClear',['../winTxt_8cpp.html#abfddca010a6ceb2c5292c98247a434ce',1,'termClear():&#160;winTxt.cpp'],['../winTxt_8h.html#abfddca010a6ceb2c5292c98247a434ce',1,'termClear():&#160;winTxt.cpp']]],
+  ['terminit_180',['termInit',['../winTxt_8cpp.html#a67191e6d920e10b82b0868cb240228ae',1,'winTxt.cpp']]],
+  ['termmove_181',['termMove',['../winTxt_8cpp.html#a0038303af38e1a50f24e3d4e33a4635b',1,'winTxt.cpp']]],
+  ['testregression_182',['TestRegression',['../classJeu.html#a124c841f6cd9f34eccbc2f4799880a58',1,'Jeu::TestRegression()'],['../classPosition.html#aae58b8006d10e9784615619ad31e3b11',1,'Position::TestRegression()'],['../classScore.html#ad174c293b9cbc4465ed50baf597b0618',1,'Score::TestRegression()']]],
+  ['txtaff_183',['txtAff',['../Main__Txt_8cpp.html#afde74a955ef9ff6e1307ae8e4912487b',1,'Main_Txt.cpp']]],
+  ['txtboucle_184',['txtBoucle',['../Main__Txt_8cpp.html#ab3f2d41e9167ea56b6bc113635e67782',1,'Main_Txt.cpp']]]
 ];

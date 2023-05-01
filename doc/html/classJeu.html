@@ -70,7 +70,10 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>La classe <a class="el" href="classJeu.html" title="La classe Jeu va mettre en relation toutes les classes nécessaires pour le jeu. Il contient une donné...">Jeu</a> va mettre en relation toutes les classes nécessaires pour le jeu. Il contient une donnée membre TailleX et TailleY qui correspondent à la taille de l'écran de l'affichage , et une variable de type classe <a class="el" href="classVoiture.html" title="La classe voiture contient un donnée membre Position et un donnée membre Deplacement qui est une vari...">Voiture</a>.  
+<p>La classe <a class="el" href="classJeu.html" title="La classe Jeu va mettre en relation toutes les classes nécessaires pour le jeu. Il contient comme don...">Jeu</a> va mettre en relation toutes les classes nécessaires pour le jeu. Il contient comme donnée membre TailleX et TailleY qui correspondent à la taille de l'écran de l'affichage, <br  />
+ un pointeur de type classe <a class="el" href="classVoiture.html" title="La classe voiture contient un donnée membre de type pointeur de classe Position (&quot;Voiture_Position&quot;) ...">Voiture</a>, <br  />
+ un donnée membre de type classe <a class="el" href="classScore.html" title="La classe Score contient deux données membres publics:   &quot;score&quot;: un int qui s&#39;incrémente à chaque fo...">Score</a> <br  />
+ un pointeur de type classe obstacle. un pointeur de type classe Niveau.  
  <a href="classJeu.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Jeu_8h_source.html">Jeu.h</a>&gt;</code></p>
@@ -89,7 +92,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9cd19e73df169d7f09397be61ba8548c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ce déstructeur Ddésalloue les allocations alloués par la donnée membre "Ptr_Voiture".  <a href="classJeu.html#a9cd19e73df169d7f09397be61ba8548c">More...</a><br /></td></tr>
 <tr class="separator:a9cd19e73df169d7f09397be61ba8548c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a124c841f6cd9f34eccbc2f4799880a58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJeu.html#a124c841f6cd9f34eccbc2f4799880a58">TestRegression</a> ()</td></tr>
-<tr class="memdesc:a124c841f6cd9f34eccbc2f4799880a58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction teste si les données membres ont bien été initialisés à 400.  <a href="classJeu.html#a124c841f6cd9f34eccbc2f4799880a58">More...</a><br /></td></tr>
+<tr class="memdesc:a124c841f6cd9f34eccbc2f4799880a58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction teste à maximum de fonction membres de la classe <a class="el" href="classJeu.html" title="La classe Jeu va mettre en relation toutes les classes nécessaires pour le jeu. Il contient comme don...">Jeu</a>.  <a href="classJeu.html#a124c841f6cd9f34eccbc2f4799880a58">More...</a><br /></td></tr>
 <tr class="separator:a124c841f6cd9f34eccbc2f4799880a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -102,13 +105,18 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a6be742b6a633fe6369867134b2f28b62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa08292f35d61982524084d8e1d9c6d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classVoiture.html">Voiture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJeu.html#afa08292f35d61982524084d8e1d9c6d3">Ptr_Voiture</a></td></tr>
 <tr class="separator:afa08292f35d61982524084d8e1d9c6d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a743ca2a2ba5a5d9062c239cc297497"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classScore.html">Score</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJeu.html#a9a743ca2a2ba5a5d9062c239cc297497">Score_Joueur</a></td></tr>
-<tr class="separator:a9a743ca2a2ba5a5d9062c239cc297497"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acaa818870aa20c4300fef0fdebb144c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSdl.html">Sdl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJeu.html#acaa818870aa20c4300fef0fdebb144c3">S_D_L</a></td></tr>
-<tr class="separator:acaa818870aa20c4300fef0fdebb144c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02ab5c9f64c00cac8fae927b698f548f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classScore.html">Score</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJeu.html#a02ab5c9f64c00cac8fae927b698f548f">Score_Joueur</a></td></tr>
+<tr class="separator:a02ab5c9f64c00cac8fae927b698f548f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee18ad16230f2f4a441350940e3900f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classObstacle.html">Obstacle</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJeu.html#aee18ad16230f2f4a441350940e3900f9">Obs</a></td></tr>
+<tr class="separator:aee18ad16230f2f4a441350940e3900f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a512c0d61868216e8feb15255ba6d57f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNiveaux.html">Niveaux</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJeu.html#a512c0d61868216e8feb15255ba6d57f8">Niv</a></td></tr>
+<tr class="separator:a512c0d61868216e8feb15255ba6d57f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>La classe <a class="el" href="classJeu.html" title="La classe Jeu va mettre en relation toutes les classes nécessaires pour le jeu. Il contient une donné...">Jeu</a> va mettre en relation toutes les classes nécessaires pour le jeu. Il contient une donnée membre TailleX et TailleY qui correspondent à la taille de l'écran de l'affichage , et une variable de type classe <a class="el" href="classVoiture.html" title="La classe voiture contient un donnée membre Position et un donnée membre Deplacement qui est une vari...">Voiture</a>. </p>
+<div class="textblock"><p>La classe <a class="el" href="classJeu.html" title="La classe Jeu va mettre en relation toutes les classes nécessaires pour le jeu. Il contient comme don...">Jeu</a> va mettre en relation toutes les classes nécessaires pour le jeu. Il contient comme donnée membre TailleX et TailleY qui correspondent à la taille de l'écran de l'affichage, <br  />
+ un pointeur de type classe <a class="el" href="classVoiture.html" title="La classe voiture contient un donnée membre de type pointeur de classe Position (&quot;Voiture_Position&quot;) ...">Voiture</a>, <br  />
+ un donnée membre de type classe <a class="el" href="classScore.html" title="La classe Score contient deux données membres publics:   &quot;score&quot;: un int qui s&#39;incrémente à chaque fo...">Score</a> <br  />
+ un pointeur de type classe obstacle. un pointeur de type classe Niveau. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1f150493389e03c4e745cde97575f77a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1f150493389e03c4e745cde97575f77a">&#9670;&nbsp;</a></span>Jeu()</h2>
@@ -175,11 +183,25 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Cette fonction teste si les données membres ont bien été initialisés à 400. </p>
+<p>Cette fonction teste à maximum de fonction membres de la classe <a class="el" href="classJeu.html" title="La classe Jeu va mettre en relation toutes les classes nécessaires pour le jeu. Il contient comme don...">Jeu</a>. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a512c0d61868216e8feb15255ba6d57f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a512c0d61868216e8feb15255ba6d57f8">&#9670;&nbsp;</a></span>Niv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNiveaux.html">Niveaux</a>* Jeu::Niv</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6be742b6a633fe6369867134b2f28b62"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6be742b6a633fe6369867134b2f28b62">&#9670;&nbsp;</a></span>Niveau</h2>
 
@@ -188,6 +210,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int Jeu::Niveau</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aee18ad16230f2f4a441350940e3900f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee18ad16230f2f4a441350940e3900f9">&#9670;&nbsp;</a></span>Obs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classObstacle.html">Obstacle</a>* Jeu::Obs</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -208,28 +244,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="acaa818870aa20c4300fef0fdebb144c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acaa818870aa20c4300fef0fdebb144c3">&#9670;&nbsp;</a></span>S_D_L</h2>
+<a id="a02ab5c9f64c00cac8fae927b698f548f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02ab5c9f64c00cac8fae927b698f548f">&#9670;&nbsp;</a></span>Score_Joueur</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classSdl.html">Sdl</a> Jeu::S_D_L</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9a743ca2a2ba5a5d9062c239cc297497"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a743ca2a2ba5a5d9062c239cc297497">&#9670;&nbsp;</a></span>Score_Joueur</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classScore.html">Score</a>* Jeu::Score_Joueur</td>
+          <td class="memname"><a class="el" href="classScore.html">Score</a> Jeu::Score_Joueur</td>
         </tr>
       </table>
 </div><div class="memdoc">

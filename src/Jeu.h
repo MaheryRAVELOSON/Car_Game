@@ -19,8 +19,11 @@
  * @brief La classe Jeu va mettre en relation toutes les classes nécessaires 
  * pour le jeu. 
  * Il contient comme donnée membre TailleX et TailleY qui correspondent à la 
- * taille de l'écran de l'affichage , un pointeur de type classe Voiture,
- * un pointeur de type classe Score, une classe obstacle.
+ * taille de l'écran de l'affichage,
+ * \n un pointeur de type classe Voiture,
+ * \n un donnée membre de type classe Score
+ * \n un pointeur de type classe obstacle.
+ * un pointeur de type classe Niveau
  */
 class Jeu
 {
@@ -50,8 +53,8 @@ class Jeu
 
 //_____________________________________________________________________________
         /**
-         * @brief Cette fonction teste si les données membres ont  bien été
-         * initialisés à 400.
+         * @brief Cette fonction teste à maximum de fonction membres de la classe
+         * Jeu.
          */
         void TestRegression();
 };

@@ -70,7 +70,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>La classe voiture contient un donnée membre <a class="el" href="classPosition.html" title="Cette classe contient les coordoné d&#39;une position et les fonctions membre qui permettent de les manip...">Position</a> et un donnée membre Deplacement qui est une variable qui décide de combien de pixel se déplace la voiture dès que l'utilisateur appuie sur une touche.  
+<p>La classe voiture contient un donnée membre de type pointeur de classe <a class="el" href="classPosition.html" title="Cette classe contient les coordoné d&#39;une position et les fonctions membre qui permettent de les manip...">Position</a> ("Voiture_Position") et un donnée membre "Deplacement" qui est une variable de type int et qui décide de combien de pixel se déplace la voiture pour aller à gauche/droite/haut/bas.  
  <a href="classVoiture.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Voiture_8h_source.html">Voiture.h</a>&gt;</code></p>
@@ -83,10 +83,10 @@ Collaboration diagram for Voiture:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a94bbadc23e779e708a9887be7f7a3f01"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoiture.html#a94bbadc23e779e708a9887be7f7a3f01">Voiture</a> (int TailleEcranX, int TailleEcranY)</td></tr>
-<tr class="memdesc:a94bbadc23e779e708a9887be7f7a3f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ce constructeur initialise la position de la voiture par rapport au taille de l'écran.  <a href="classVoiture.html#a94bbadc23e779e708a9887be7f7a3f01">More...</a><br /></td></tr>
+<tr class="memdesc:a94bbadc23e779e708a9887be7f7a3f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ce constructeur initialise la position de la voiture par rapport à la taille de l'écran.  <a href="classVoiture.html#a94bbadc23e779e708a9887be7f7a3f01">More...</a><br /></td></tr>
 <tr class="separator:a94bbadc23e779e708a9887be7f7a3f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe85820a993b6908d0fdb524245e5133"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoiture.html#afe85820a993b6908d0fdb524245e5133">~Voiture</a> ()</td></tr>
-<tr class="memdesc:afe85820a993b6908d0fdb524245e5133"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ce déssructeur désaloue tous les allocations des données membres dans le tas.  <a href="classVoiture.html#afe85820a993b6908d0fdb524245e5133">More...</a><br /></td></tr>
+<tr class="memdesc:afe85820a993b6908d0fdb524245e5133"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ce déstructeur désaloue tous les allocations des données membres dans le tas: le pointeur de classe position "Voiture_Position".  <a href="classVoiture.html#afe85820a993b6908d0fdb524245e5133">More...</a><br /></td></tr>
 <tr class="separator:afe85820a993b6908d0fdb524245e5133"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c3582cc3047f1b2f27a20e16ded4f23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVoiture.html#a5c3582cc3047f1b2f27a20e16ded4f23">Deplacer_Gauche</a> ()</td></tr>
 <tr class="memdesc:a5c3582cc3047f1b2f27a20e16ded4f23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction permet de déplacer la voiture vers la gauche.  <a href="classVoiture.html#a5c3582cc3047f1b2f27a20e16ded4f23">More...</a><br /></td></tr>
@@ -109,7 +109,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ad39c88838ec41c675f299a2b940d567f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>La classe voiture contient un donnée membre <a class="el" href="classPosition.html" title="Cette classe contient les coordoné d&#39;une position et les fonctions membre qui permettent de les manip...">Position</a> et un donnée membre Deplacement qui est une variable qui décide de combien de pixel se déplace la voiture dès que l'utilisateur appuie sur une touche. </p>
+<div class="textblock"><p>La classe voiture contient un donnée membre de type pointeur de classe <a class="el" href="classPosition.html" title="Cette classe contient les coordoné d&#39;une position et les fonctions membre qui permettent de les manip...">Position</a> ("Voiture_Position") et un donnée membre "Deplacement" qui est une variable de type int et qui décide de combien de pixel se déplace la voiture pour aller à gauche/droite/haut/bas. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a94bbadc23e779e708a9887be7f7a3f01"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a94bbadc23e779e708a9887be7f7a3f01">&#9670;&nbsp;</a></span>Voiture()</h2>
@@ -137,7 +137,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Ce constructeur initialise la position de la voiture par rapport au taille de l'écran. </p>
+<p>Ce constructeur initialise la position de la voiture par rapport à la taille de l'écran. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">TailleEcranX</td><td>un entier qui correspond au largeur de l'écran </td></tr>
@@ -163,7 +163,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Ce déssructeur désaloue tous les allocations des données membres dans le tas. </p>
+<p>Ce déstructeur désaloue tous les allocations des données membres dans le tas: le pointeur de classe position "Voiture_Position". </p>
 
 </div>
 </div>
@@ -198,7 +198,7 @@ Public Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Niveau</td><td>un entier qui correspond au niveau actuel du joueur </td></tr>
-    <tr><td class="paramname">TailleEcranY</td><td>un entier qui correspond à la hauteur de la fenétre </td></tr>
+    <tr><td class="paramname">TailleEcranY</td><td>un entier qui correspond à la hauteur de la fenêtre </td></tr>
   </table>
   </dd>
 </dl>

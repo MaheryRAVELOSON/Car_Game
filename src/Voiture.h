@@ -16,9 +16,10 @@
 
 
 /**
- * @brief La classe voiture contient un donnée membre Position et un donnée
- * membre Deplacement qui est une variable qui décide de combien de pixel se
- * déplace la voiture dès que l'utilisateur appuie sur une touche.
+ * @brief La classe voiture contient un donnée membre de type pointeur de classe
+ * Position ("Voiture_Position") et un donnée membre "Deplacement" qui est une
+ * variable de type int et qui décide de combien de pixel se déplace la voiture
+ * pour aller à gauche/droite/haut/bas.
  * 
  */
 class Voiture
@@ -42,7 +43,7 @@ class Voiture
 //_____________________________________________________________________________
         /**
          * @brief Ce déstructeur désaloue tous les allocations des données
-         * membres dans le tas.
+         * membres dans le tas: le pointeur de classe position "Voiture_Position"
          * 
          */
         ~Voiture();
@@ -81,7 +82,7 @@ class Voiture
          * 
          * @param Niveau: un entier qui correspond au niveau actuel du joueur
          * @param TailleEcranY: un entier qui correspond à la hauteur de la
-         * fenétre 
+         * fenêtre 
          */
         void Deplacer_Bas(int Niveau , int TailleEcranY);
 

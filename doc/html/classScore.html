@@ -70,7 +70,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>La classe <a class="el" href="classScore.html" title="La classe Score ne contient qu&#39;une seule donnée membre publique &quot;score&quot; qui est un entier qui contien...">Score</a> ne contient qu'une seule donnée membre publique "score" qui est un entier qui contiendra le temps écoulé en seconde depuis le lancement du jeu.  
+<p>La classe <a class="el" href="classScore.html" title="La classe Score contient deux données membres publics:   &quot;score&quot;: un int qui s&#39;incrémente à chaque fo...">Score</a> contient deux données membres publics: <br  />
+ "score": un int qui s'incrémente à chaque fois qu'un obstacle arrive en bas de l'écran. <br  />
+ "score_Majoree": un int qui s'incrémente en même temps que la "score" mais qu'on remet à 0 dès qu'il est plus grand ou égale à 3. Il sert à augmenter les déplacements/vitesse des obstacle tout les 3 obstacles passé dès qu'on est au niveau 3 du jeu.  
  <a href="classScore.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Score_8h_source.html">Score.h</a>&gt;</code></p>
@@ -78,7 +80,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a039c99843551e5e4b512ecee99e46617"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScore.html#a039c99843551e5e4b512ecee99e46617">Score</a> ()</td></tr>
-<tr class="memdesc:a039c99843551e5e4b512ecee99e46617"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ce constructeur initialise la donnée membre "score" à 0;.  <a href="classScore.html#a039c99843551e5e4b512ecee99e46617">More...</a><br /></td></tr>
+<tr class="memdesc:a039c99843551e5e4b512ecee99e46617"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ce constructeur initialise les données membres "score" et "score_Majoree" à 0;.  <a href="classScore.html#a039c99843551e5e4b512ecee99e46617">More...</a><br /></td></tr>
 <tr class="separator:a039c99843551e5e4b512ecee99e46617"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad174c293b9cbc4465ed50baf597b0618"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScore.html#ad174c293b9cbc4465ed50baf597b0618">TestRegression</a> ()</td></tr>
 <tr class="memdesc:ad174c293b9cbc4465ed50baf597b0618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction teste si la donnée membre score a bien été initialisé à 0.  <a href="classScore.html#ad174c293b9cbc4465ed50baf597b0618">More...</a><br /></td></tr>
@@ -88,9 +90,13 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a331b0927105c83ba760954eff6cf9fe9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScore.html#a331b0927105c83ba760954eff6cf9fe9">score</a></td></tr>
 <tr class="separator:a331b0927105c83ba760954eff6cf9fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f4e94e4ea23e330f9b17c8a857d3316"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScore.html#a1f4e94e4ea23e330f9b17c8a857d3316">score_Majoree</a></td></tr>
+<tr class="separator:a1f4e94e4ea23e330f9b17c8a857d3316"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>La classe <a class="el" href="classScore.html" title="La classe Score ne contient qu&#39;une seule donnée membre publique &quot;score&quot; qui est un entier qui contien...">Score</a> ne contient qu'une seule donnée membre publique "score" qui est un entier qui contiendra le temps écoulé en seconde depuis le lancement du jeu. </p>
+<div class="textblock"><p>La classe <a class="el" href="classScore.html" title="La classe Score contient deux données membres publics:   &quot;score&quot;: un int qui s&#39;incrémente à chaque fo...">Score</a> contient deux données membres publics: <br  />
+ "score": un int qui s'incrémente à chaque fois qu'un obstacle arrive en bas de l'écran. <br  />
+ "score_Majoree": un int qui s'incrémente en même temps que la "score" mais qu'on remet à 0 dès qu'il est plus grand ou égale à 3. Il sert à augmenter les déplacements/vitesse des obstacle tout les 3 obstacles passé dès qu'on est au niveau 3 du jeu. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a039c99843551e5e4b512ecee99e46617"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a039c99843551e5e4b512ecee99e46617">&#9670;&nbsp;</a></span>Score()</h2>
@@ -107,7 +113,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Ce constructeur initialise la donnée membre "score" à 0;. </p>
+<p>Ce constructeur initialise les données membres "score" et "score_Majoree" à 0;. </p>
 
 </div>
 </div>
@@ -140,6 +146,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int Score::score</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1f4e94e4ea23e330f9b17c8a857d3316"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f4e94e4ea23e330f9b17c8a857d3316">&#9670;&nbsp;</a></span>score_Majoree</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Score::score_Majoree</td>
         </tr>
       </table>
 </div><div class="memdoc">

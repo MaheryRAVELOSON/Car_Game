@@ -3,14 +3,16 @@ digraph "Jeu"
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="Jeu",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="La classe Jeu va mettre en relation toutes les classes nécessaires pour le jeu. Il contient une donné..."];
+  Node1 [label="Jeu",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="La classe Jeu va mettre en relation toutes les classes nécessaires pour le jeu. Il contient comme don..."];
   Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Ptr_Voiture" ,fontname="Helvetica"];
-  Node2 [label="Voiture",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classVoiture.html",tooltip="La classe voiture contient un donnée membre Position et un donnée membre Deplacement qui est une vari..."];
+  Node2 [label="Voiture",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classVoiture.html",tooltip="La classe voiture contient un donnée membre de type pointeur de classe Position (\"Voiture_Position\") ..."];
   Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Voiture_Position" ,fontname="Helvetica"];
   Node3 [label="Position",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPosition.html",tooltip="Cette classe contient les coordoné d'une position et les fonctions membre qui permettent de les manip..."];
-  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" S_D_L" ,fontname="Helvetica"];
-  Node4 [label="Sdl",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSdl.html",tooltip="Cette classe s'occupe de l'affiche de la voiture, des obstacle et du score. Il a donc trois donné mem..."];
-  Node2 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Voiture_Joeur_Sdl" ,fontname="Helvetica"];
-  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Score_Joueur" ,fontname="Helvetica"];
-  Node5 [label="Score",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classScore.html",tooltip="La classe Score ne contient qu'une seule donnée membre publique \"score\" qui est un entier qui contien..."];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Niv" ,fontname="Helvetica"];
+  Node4 [label="Niveaux",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNiveaux.html",tooltip="La classe Niveau s'occupe TOUTE les mouvements qu'on appliques à chaque obstacle, que se soit une dép..."];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Obs" ,fontname="Helvetica"];
+  Node5 [label="Obstacle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObstacle.html",tooltip="La classe obstacle contient quatres données membres:   Un pointeur de tableau de position \"Tab_Obstac..."];
+  Node3 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Tab_Obstacle" ,fontname="Helvetica"];
+  Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Score_Joueur" ,fontname="Helvetica"];
+  Node6 [label="Score",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classScore.html",tooltip="La classe Score contient deux données membres publics:   \"score\": un int qui s'incrémente à chaque fo..."];
 }

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['wintxt_81',['WinTXT',['../classWinTXT.html',1,'']]]
+  ['score_121',['Score',['../classScore.html',1,'']]],
+  ['sdl_122',['Sdl',['../classSdl.html',1,'']]]
 ];

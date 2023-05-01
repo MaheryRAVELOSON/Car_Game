@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['jeu_19',['Jeu',['../classJeu.html',1,'Jeu'],['../classJeu.html#a1f150493389e03c4e745cde97575f77a',1,'Jeu::Jeu()']]],
-  ['jeu_2ecpp_20',['Jeu.cpp',['../Jeu_8cpp.html',1,'']]],
-  ['jeu_2eh_21',['Jeu.h',['../Jeu_8h.html',1,'']]],
-  ['jeu_5fh_22',['Jeu_H',['../Jeu_8h.html#aba1842c7de4b86c15bfe6f9c37862595',1,'Jeu.h']]]
+  ['getch_15',['getCh',['../classWinTXT.html#a418c66475403586ac57a80eceb409166',1,'WinTXT']]],
+  ['getx1_16',['getX1',['../classPosition.html#ae070af98e809155799831a3688dea986',1,'Position']]],
+  ['getx2_17',['getX2',['../classPosition.html#a0db074c31ebe4d6cecb2e3391a888e74',1,'Position']]],
+  ['gety1_18',['getY1',['../classPosition.html#ae55071492a2b0b74fc2fe5735490f362',1,'Position']]],
+  ['gety2_19',['getY2',['../classPosition.html#ae8fdc197b4de88efbaac9875d1343a5f',1,'Position']]]
 ];

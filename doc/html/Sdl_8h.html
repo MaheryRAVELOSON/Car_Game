@@ -71,12 +71,20 @@ $(function() {
 <div class="title">Sdl.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Ce fichier contient l'entête de la classe <a class="el" href="classJeu.html" title="La classe Jeu va mettre en relation toutes les classes nécessaires pour le jeu. Il contient comme don...">Jeu</a>.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;SDL.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="Voiture_8h_source.html">Voiture.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Obstacle_8h_source.html">Obstacle.h</a>&quot;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;SDL_image.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_mixer.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="Jeu_8h_source.html">Jeu.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Sdl.h:</div>
 <div class="dyncontent">
@@ -93,11 +101,16 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSdl.html">Sdl</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette classe s'occupe de l'affiche de la voiture, des obstacle et du score. Il a donc trois donné membre qui sont tous des pointeurs.  <a href="classSdl.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette classe s'occupe de l'affiche de la voiture, des obstacle et du score. <br  />
+ "texture_V" et "texture_V2" sont des données membres de type pointeur de SDL_Texture qui sont utilisé pour afficher les deux images de la voiture. <br  />
+ "texture_Obs" est un donnée membre de type pointeur de SDL_Texture qui est utilisé pour afficher l'image pour les obstacles. <br  />
+ "texture_R0", "texture_R1", "texture_R2", "texture_R3" ont des données membres de type pointeur de SDL_Texture qui sont utilisé pour afficher les quatres images de la route. <br  />
+ "Indice_Texture_R": un int qui se balade entre 0 inclus et 3 inclus et qui décide quelle image de la route on affiche sur l'écran pour avoir un effet de route qui défile.  <a href="classSdl.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>p2207683 p2003422 </dd></dl>
+<div class="textblock"><p>Ce fichier contient l'entête de la classe <a class="el" href="classJeu.html" title="La classe Jeu va mettre en relation toutes les classes nécessaires pour le jeu. Il contient comme don...">Jeu</a>. </p>
+<dl class="section author"><dt>Author</dt><dd>p2207683 p2003422 </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-03-14</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>

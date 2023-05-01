@@ -1,7 +1,7 @@
 /**
  * @file Sdl.h
  * @author p2207683 p2003422
- * @brief 
+ * @brief Ce fichier contient l'entête de la classe Jeu
  * @version 0.1
  * @date 2023-03-14
  * 
@@ -32,7 +32,15 @@ using namespace std;
 //_____________________________________________________________________________________
 /**
  * @brief Cette classe s'occupe de l'affiche de la voiture, des obstacle
- * et du score. Il a donc trois donné membre qui sont tous des pointeurs
+ * et du score.
+ * \n "texture_V" et "texture_V2" sont des données membres de type pointeur de
+ * SDL_Texture qui sont utilisé pour afficher les deux images de la voiture.
+ * \n "texture_Obs" est un donnée membre de type pointeur de SDL_Texture qui est utilisé
+ * pour afficher l'image pour les obstacles.
+ * \n "texture_R0", "texture_R1", "texture_R2", "texture_R3" ont des données membres de
+ * type pointeur de SDL_Texture qui sont utilisé pour afficher les quatres images de la route.
+ * \n "Indice_Texture_R": un int qui se balade entre 0 inclus et 3 inclus et qui décide
+ * quelle image de la route on affiche sur l'écran pour avoir un effet de route qui défile.
  * 
  */
 class Sdl
@@ -63,16 +71,18 @@ class Sdl
 
 //_____________________________________________________________________________
         /**
-         * @brief Ce destructeur pointe toute les pointeur donnée membre sur
-         * nullptr
+         * @brief Ce constructeur initialise toute les donnée membres de la classe
+         * SDL autre que le donnée membre "JEU"
          * 
          */
         Sdl();
 
 //_____________________________________________________________________________
         /**
-         * @brief Ce destructeur pointe toute les pointeur donnée membre sur
-         * nullptr
+         * @brief Ce destructeur désalloue toute les mémoire alloué par les
+         * données membres de type pointeur.
+         * \n Remarque: à part les données membres "JEU", "textColor", "textRect"
+         * toute les autres données membre de la classe SDL sont de type pointeur.
          * 
          */
         ~Sdl();
@@ -81,33 +91,22 @@ class Sdl
 //_____________________________________________________________________________
         /**
          * @brief Il fait la mis à jours de la fenêtre SDL
-         * 
-         * @param fenetre: un pointeur qui va contenir l'adresse memoire de la
-         * fenetre SDL qui a été créée.
-         * @param Rendu: un pointeur qui va contenir l'adresse memoire du rendu
-         * SDL qui a été créée. 
          */
         void MAJ_SDL();
 
-//_______________________________________________un pointeur de type classe Voiture______________________________
+//_____________________________________________________________________________
         /**
          * @brief Il va appeller en boucle la fonction de la mis à jour de
-         * l'affichage jusqu'à ce que l'utilisateur décide d'arrêter. Il traite
+         * l'affichage jusqu'à ce que l'utilisateur décide de fermer la fenêtre
+         * du jeu. Il traite
          * aussi tout les évènements du clavier
-         * 
-         * @param fenetre: un pointeur qui va contenir l'adresse memoire de la
-         * fenetre SDL qui a été créée.
-         * @param Rendu: un pointeur qui va contenir l'adresse memoire du rendu
-         * SDL qui a été créée.
+
          */
         void afficherBoucle();
 
 //_____________________________________________________________________________
         /**
-         * @brief il permet d'appeller la procedure qui initialise SDL, puis
-         * la procédure qui appelle en boucle la fonction qui fait la MAJ de
-         * l'écran; enfin cette fonction appelle la procedure qui fait les
-         * désallocation necessaire fait par les variables SDL
+         * @brief cettre procédure ne fait qu'appeller la procédure "afficherBoucle"
          */
         void afficher();
 };

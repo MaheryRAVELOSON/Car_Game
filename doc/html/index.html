@@ -72,17 +72,35 @@ Introduction</h1>
  Le <a class="el" href="Main_8cpp.html">Main.cpp</a>: pour réaliser un test de regression. il permet de créer un fichier executable Main dans le repertoire bin . <br  />
  Le <a class="el" href="Main__Sdl_8cpp.html">Main_Sdl.cpp</a> pour afficher avec SDL , il permet de créer un fichier executable Main_Sdl dans le repertoire bin . <br  />
  Le <a class="el" href="Main__Txt_8cpp.html">Main_Txt.cpp</a> pour afficher le jeu en mode texte dans le terminal . Il permet de créeer un fichier excutable Main_Txt dans le répertoire bin . <br  />
+ le projet permet de créer un jeu de voiture dont le but est d'éviter des obstacles . <br  />
+ On a 3 niveaux différent: Le niveau un est un démplacement verticale vers le bas de chaque obstacle. Le niveau 2 est le niveau 1 + dépalcement horizontale de chaque obstacle. Le Niveau 3 est le niveau 2 + grossissement/retrecissement de chaque obstacle. Après le niveau trois, la vitesse de déplacement de la voiture, le déplacement horizontale et verticale des obstacles s'incrément automatiquement tout les 3 obstacle qui arrive en bas de la fenêtre. <br  />
+ Pour joueur au jeu: <br  />
+ la touche "q" pour déplacer la voiture vers la gauche. <br  />
+ la touche "d" pour déplacer la voiture vers la droite. <br  />
+ la touche "z" pour déplacer la voiture vers le haut: disponible qu'à partir du niveau 2 inclus. <br  />
+ la touche "s" pour déplacer la voiture vers le bas: disponible qu'à partir du niveau 2 inclus. <br  />
+ la touche "Echap" permet de fermer la fenêtre <a class="el" href="classSdl.html" title="Cette classe s&#39;occupe de l&#39;affiche de la voiture, des obstacle et du score.   &quot;texture_V&quot; et &quot;texture...">Sdl</a> qui affiche le jeu. <br  />
 </p>
 <hr  />
  <h1><a class="anchor" id="Label_compiler"></a>
 Pour compiler</h1>
-<p>Tapez la commande "make" dans le repertoire contenant le fichier Makefie puis ça créera dans le repertoire "bin" les executables "Main", "Main_Sdl" et "Main_Txt" .</p>
+<ul>
+<li>"make" =&gt; il va créer les executable "Main", "Main_Sdl" et "Main_Txt". Il va aussi créer les objet "Jeu.o" "Main.o" "Main_Sdl.o" "Main_Txt.o" "Niveau.o" "Obstacle.o" "Position.o" "Score.o" "Sdl.o" "Voiture.o" "winTxt.o" <br  />
+ <br  />
+ pour mettre à jour la documentaion doxygen: "make maj" <br  />
+ pour créer la documentation doxygen: "make doxy"</li>
+</ul>
 <hr  />
  <h1><a class="anchor" id="Label_executer"></a>
 Pour executer</h1>
-<p>"./bin/Main": il va faire des tests de régression de plusieurs classes . <br  />
- "./bin/Main_Sdl": il va afficher le jeu dans une fenetre SDL. <br  />
- "./bin/Main_Txt": il va afficher le jeu en mode texte sur le terminal .</p>
+<p>Depuis le repertoire contenant le Makefile: <br  />
+ "./bin/Main" pour l'executable "Main" <br  />
+ "./bin/Main_Sdl" pour l'executable "Main_Sdl" <br  />
+ "./bin/Main_Txt" pour l'executable "Main_Txt" <br  />
+ Pour les executer avec valgrind: <br  />
+ "make v_t" pour l'executable "Main" <br  />
+ "make v_s" pour l'executable "Main_Sdl" <br  />
+ "make v_tx" pour l'executable "Main_Txt"</p>
 <hr  />
  <h1><a class="anchor" id="Label_exec_valgrind"></a>
 executer avec Valgrind</h1>

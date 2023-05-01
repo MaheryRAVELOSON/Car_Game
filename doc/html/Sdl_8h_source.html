@@ -70,56 +70,96 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="Sdl_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef SDL_H</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define SDL_H</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Voiture_8h.html">Voiture.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span>     <span class="comment">/* abs */</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef SDL_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define SDL_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Voiture_8h.html">Voiture.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Obstacle_8h.html">Obstacle.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span>     <span class="comment">/* abs */</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//_____________________________________________________________________________________</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classSdl.html">   30</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="classSdl.html">Sdl</a></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classSdl.html#ab5c9a5381ab5fa81688a53ef855e4a07">   33</a></span>&#160;        <a class="code" href="classVoiture.html">Voiture</a> * <a class="code" href="classSdl.html#ab5c9a5381ab5fa81688a53ef855e4a07">Voiture_Joeur_Sdl</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classSdl.html#ab1e80d971de0ae98a013e80930a0bc03">   34</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classSdl.html#ab1e80d971de0ae98a013e80930a0bc03">TailleEcran_X_sdl</a>, TailleEcran_Y_sdl;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classSdl.html#a68cb544fd4417610efa81f08b45960a6">   35</a></span>&#160;        <span class="keywordtype">int</span> * <a class="code" href="classSdl.html#a68cb544fd4417610efa81f08b45960a6">Niveau_Sdl</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">//_____________________________________________________________________________</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"></span>        ~<a class="code" href="classSdl.html">Sdl</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">//_____________________________________________________________________________________</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> SdlConstructor(SDL_Window* &amp;fenetre, SDL_Renderer* &amp;Rendu);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">//_____________________________________________________________________________________</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> SdlDestuctor(SDL_Window* &amp;fenetre, SDL_Renderer* &amp;Rendu);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">//_____________________________________________________________________________</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> MAJ_SDL(SDL_Window* &amp;fenetre, SDL_Renderer* &amp;Rendu);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">//_____________________________________________________________________________</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> afficherBoucle(SDL_Window* &amp;fenetre, SDL_Renderer* &amp;Rendu);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">//_____________________________________________________________________________</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> afficher();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;};</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;SDL_image.h&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_ttf.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_mixer.h&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Jeu_8h.html">Jeu.h</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">//_____________________________________________________________________________________</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classSdl.html">   46</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="classSdl.html">Sdl</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classSdl.html#a5e8896173ea03ba9d11b98db20b1c0c2">   49</a></span>&#160;        <a class="code" href="classJeu.html">Jeu</a> <a class="code" href="classSdl.html#a5e8896173ea03ba9d11b98db20b1c0c2">JEU</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classSdl.html#afec3666b9222428ed46dfe6c26ec2d5e">   51</a></span>&#160;        SDL_Window *<a class="code" href="classSdl.html#afec3666b9222428ed46dfe6c26ec2d5e">fenetre</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classSdl.html#acaeb8511bc31a9233892709bf9c33bdf">   52</a></span>&#160;        SDL_Renderer *<a class="code" href="classSdl.html#acaeb8511bc31a9233892709bf9c33bdf">Rendu</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classSdl.html#ab6d942c3d29fda97a63a0708b481900a">   53</a></span>&#160;        SDL_Surface *<a class="code" href="classSdl.html#ab6d942c3d29fda97a63a0708b481900a">surface</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classSdl.html#a6032524acd7328d24628914f07954706">   55</a></span>&#160;        SDL_Texture* <a class="code" href="classSdl.html#a6032524acd7328d24628914f07954706">texture_V</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classSdl.html#abdc24bd441b44f99bcc56d28419890d2">   56</a></span>&#160;        SDL_Texture* <a class="code" href="classSdl.html#abdc24bd441b44f99bcc56d28419890d2">texture_V2</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classSdl.html#a2b488f960e59c84991ba5e9ac269f993">   57</a></span>&#160;        SDL_Texture* <a class="code" href="classSdl.html#a2b488f960e59c84991ba5e9ac269f993">texture_Obs</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classSdl.html#a77002c25d4b3b705a65c19ad99229008">   58</a></span>&#160;        SDL_Texture* <a class="code" href="classSdl.html#a77002c25d4b3b705a65c19ad99229008">texture_R0</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classSdl.html#aa588450b17652839692eab6ebca62396">   59</a></span>&#160;        SDL_Texture* <a class="code" href="classSdl.html#aa588450b17652839692eab6ebca62396">texture_R1</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classSdl.html#a8e6fdc4a7dd1c523f229f8b13c79f728">   60</a></span>&#160;        SDL_Texture* <a class="code" href="classSdl.html#a8e6fdc4a7dd1c523f229f8b13c79f728">texture_R2</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classSdl.html#a70c1fdadfa06297ea86eb94a421a55b4">   61</a></span>&#160;        SDL_Texture* <a class="code" href="classSdl.html#a70c1fdadfa06297ea86eb94a421a55b4">texture_R3</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classSdl.html#aae19148da16fcb591b60ef58567fd8cb">   62</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classSdl.html#aae19148da16fcb591b60ef58567fd8cb">Indice_Texture_R</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classSdl.html#a32cce7153106a1a93b6560a0e9a7dfce">   63</a></span>&#160;        Mix_Music* <a class="code" href="classSdl.html#a32cce7153106a1a93b6560a0e9a7dfce">music</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classSdl.html#a7aa57754d39df7ce642db5c54ad875da">   65</a></span>&#160;        SDL_Color <a class="code" href="classSdl.html#a7aa57754d39df7ce642db5c54ad875da">textColor</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classSdl.html#aa612634925b7df9e374ff64faee675bc">   66</a></span>&#160;        TTF_Font* <a class="code" href="classSdl.html#aa612634925b7df9e374ff64faee675bc">font</a> ;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classSdl.html#a90ca133749fc1617393269284ef10372">   67</a></span>&#160;        SDL_Texture* <a class="code" href="classSdl.html#a90ca133749fc1617393269284ef10372">textTexture</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classSdl.html#a44ddd8dcac95b9984190a2af5b2b3528">   68</a></span>&#160;        SDL_Rect <a class="code" href="classSdl.html#a44ddd8dcac95b9984190a2af5b2b3528">textRect</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classSdl.html#a57c031cb6f1f87cc1658f31b823dbbae">   69</a></span>&#160;        SDL_Surface* <a class="code" href="classSdl.html#a57c031cb6f1f87cc1658f31b823dbbae">textSurface</a> ;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">//_____________________________________________________________________________</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"></span>        <a class="code" href="classSdl.html">Sdl</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">//_____________________________________________________________________________</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"></span>        ~<a class="code" href="classSdl.html">Sdl</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">//_____________________________________________________________________________</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> MAJ_SDL();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">//_____________________________________________________________________________</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> afficherBoucle();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">//_____________________________________________________________________________</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> afficher();</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;};</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aJeu_8h_html"><div class="ttname"><a href="Jeu_8h.html">Jeu.h</a></div><div class="ttdoc">Ce fichier contient l'entête de la classe Jeu.</div></div>
+<div class="ttc" id="aObstacle_8h_html"><div class="ttname"><a href="Obstacle_8h.html">Obstacle.h</a></div><div class="ttdoc">ce fichier contient l'entête de la classe Obstacle</div></div>
 <div class="ttc" id="aVoiture_8h_html"><div class="ttname"><a href="Voiture_8h.html">Voiture.h</a></div><div class="ttdoc">Ce fichier contient l'entête de la classe Voiture.</div></div>
-<div class="ttc" id="aclassSdl_html"><div class="ttname"><a href="classSdl.html">Sdl</a></div><div class="ttdoc">Cette classe s'occupe de l'affiche de la voiture, des obstacle et du score. Il a donc trois donné mem...</div><div class="ttdef"><b>Definition:</b> Sdl.h:31</div></div>
-<div class="ttc" id="aclassSdl_html_a68cb544fd4417610efa81f08b45960a6"><div class="ttname"><a href="classSdl.html#a68cb544fd4417610efa81f08b45960a6">Sdl::Niveau_Sdl</a></div><div class="ttdeci">int * Niveau_Sdl</div><div class="ttdef"><b>Definition:</b> Sdl.h:35</div></div>
-<div class="ttc" id="aclassSdl_html_ab1e80d971de0ae98a013e80930a0bc03"><div class="ttname"><a href="classSdl.html#ab1e80d971de0ae98a013e80930a0bc03">Sdl::TailleEcran_X_sdl</a></div><div class="ttdeci">int TailleEcran_X_sdl</div><div class="ttdef"><b>Definition:</b> Sdl.h:34</div></div>
-<div class="ttc" id="aclassSdl_html_ab5c9a5381ab5fa81688a53ef855e4a07"><div class="ttname"><a href="classSdl.html#ab5c9a5381ab5fa81688a53ef855e4a07">Sdl::Voiture_Joeur_Sdl</a></div><div class="ttdeci">Voiture * Voiture_Joeur_Sdl</div><div class="ttdef"><b>Definition:</b> Sdl.h:33</div></div>
-<div class="ttc" id="aclassVoiture_html"><div class="ttname"><a href="classVoiture.html">Voiture</a></div><div class="ttdoc">La classe voiture contient un donnée membre Position et un donnée membre Deplacement qui est une vari...</div><div class="ttdef"><b>Definition:</b> Voiture.h:25</div></div>
+<div class="ttc" id="aclassJeu_html"><div class="ttname"><a href="classJeu.html">Jeu</a></div><div class="ttdoc">La classe Jeu va mettre en relation toutes les classes nécessaires pour le jeu. Il contient comme don...</div><div class="ttdef"><b>Definition:</b> Jeu.h:29</div></div>
+<div class="ttc" id="aclassSdl_html"><div class="ttname"><a href="classSdl.html">Sdl</a></div><div class="ttdoc">Cette classe s'occupe de l'affiche de la voiture, des obstacle et du score.   &quot;texture_V&quot; et &quot;texture...</div><div class="ttdef"><b>Definition:</b> Sdl.h:47</div></div>
+<div class="ttc" id="aclassSdl_html_a2b488f960e59c84991ba5e9ac269f993"><div class="ttname"><a href="classSdl.html#a2b488f960e59c84991ba5e9ac269f993">Sdl::texture_Obs</a></div><div class="ttdeci">SDL_Texture * texture_Obs</div><div class="ttdef"><b>Definition:</b> Sdl.h:57</div></div>
+<div class="ttc" id="aclassSdl_html_a32cce7153106a1a93b6560a0e9a7dfce"><div class="ttname"><a href="classSdl.html#a32cce7153106a1a93b6560a0e9a7dfce">Sdl::music</a></div><div class="ttdeci">Mix_Music * music</div><div class="ttdef"><b>Definition:</b> Sdl.h:63</div></div>
+<div class="ttc" id="aclassSdl_html_a44ddd8dcac95b9984190a2af5b2b3528"><div class="ttname"><a href="classSdl.html#a44ddd8dcac95b9984190a2af5b2b3528">Sdl::textRect</a></div><div class="ttdeci">SDL_Rect textRect</div><div class="ttdef"><b>Definition:</b> Sdl.h:68</div></div>
+<div class="ttc" id="aclassSdl_html_a57c031cb6f1f87cc1658f31b823dbbae"><div class="ttname"><a href="classSdl.html#a57c031cb6f1f87cc1658f31b823dbbae">Sdl::textSurface</a></div><div class="ttdeci">SDL_Surface * textSurface</div><div class="ttdef"><b>Definition:</b> Sdl.h:69</div></div>
+<div class="ttc" id="aclassSdl_html_a5e8896173ea03ba9d11b98db20b1c0c2"><div class="ttname"><a href="classSdl.html#a5e8896173ea03ba9d11b98db20b1c0c2">Sdl::JEU</a></div><div class="ttdeci">Jeu JEU</div><div class="ttdef"><b>Definition:</b> Sdl.h:49</div></div>
+<div class="ttc" id="aclassSdl_html_a6032524acd7328d24628914f07954706"><div class="ttname"><a href="classSdl.html#a6032524acd7328d24628914f07954706">Sdl::texture_V</a></div><div class="ttdeci">SDL_Texture * texture_V</div><div class="ttdef"><b>Definition:</b> Sdl.h:55</div></div>
+<div class="ttc" id="aclassSdl_html_a70c1fdadfa06297ea86eb94a421a55b4"><div class="ttname"><a href="classSdl.html#a70c1fdadfa06297ea86eb94a421a55b4">Sdl::texture_R3</a></div><div class="ttdeci">SDL_Texture * texture_R3</div><div class="ttdef"><b>Definition:</b> Sdl.h:61</div></div>
+<div class="ttc" id="aclassSdl_html_a77002c25d4b3b705a65c19ad99229008"><div class="ttname"><a href="classSdl.html#a77002c25d4b3b705a65c19ad99229008">Sdl::texture_R0</a></div><div class="ttdeci">SDL_Texture * texture_R0</div><div class="ttdef"><b>Definition:</b> Sdl.h:58</div></div>
+<div class="ttc" id="aclassSdl_html_a7aa57754d39df7ce642db5c54ad875da"><div class="ttname"><a href="classSdl.html#a7aa57754d39df7ce642db5c54ad875da">Sdl::textColor</a></div><div class="ttdeci">SDL_Color textColor</div><div class="ttdef"><b>Definition:</b> Sdl.h:65</div></div>
+<div class="ttc" id="aclassSdl_html_a8e6fdc4a7dd1c523f229f8b13c79f728"><div class="ttname"><a href="classSdl.html#a8e6fdc4a7dd1c523f229f8b13c79f728">Sdl::texture_R2</a></div><div class="ttdeci">SDL_Texture * texture_R2</div><div class="ttdef"><b>Definition:</b> Sdl.h:60</div></div>
+<div class="ttc" id="aclassSdl_html_a90ca133749fc1617393269284ef10372"><div class="ttname"><a href="classSdl.html#a90ca133749fc1617393269284ef10372">Sdl::textTexture</a></div><div class="ttdeci">SDL_Texture * textTexture</div><div class="ttdef"><b>Definition:</b> Sdl.h:67</div></div>
+<div class="ttc" id="aclassSdl_html_aa588450b17652839692eab6ebca62396"><div class="ttname"><a href="classSdl.html#aa588450b17652839692eab6ebca62396">Sdl::texture_R1</a></div><div class="ttdeci">SDL_Texture * texture_R1</div><div class="ttdef"><b>Definition:</b> Sdl.h:59</div></div>
+<div class="ttc" id="aclassSdl_html_aa612634925b7df9e374ff64faee675bc"><div class="ttname"><a href="classSdl.html#aa612634925b7df9e374ff64faee675bc">Sdl::font</a></div><div class="ttdeci">TTF_Font * font</div><div class="ttdef"><b>Definition:</b> Sdl.h:66</div></div>
+<div class="ttc" id="aclassSdl_html_aae19148da16fcb591b60ef58567fd8cb"><div class="ttname"><a href="classSdl.html#aae19148da16fcb591b60ef58567fd8cb">Sdl::Indice_Texture_R</a></div><div class="ttdeci">int Indice_Texture_R</div><div class="ttdef"><b>Definition:</b> Sdl.h:62</div></div>
+<div class="ttc" id="aclassSdl_html_ab6d942c3d29fda97a63a0708b481900a"><div class="ttname"><a href="classSdl.html#ab6d942c3d29fda97a63a0708b481900a">Sdl::surface</a></div><div class="ttdeci">SDL_Surface * surface</div><div class="ttdef"><b>Definition:</b> Sdl.h:53</div></div>
+<div class="ttc" id="aclassSdl_html_abdc24bd441b44f99bcc56d28419890d2"><div class="ttname"><a href="classSdl.html#abdc24bd441b44f99bcc56d28419890d2">Sdl::texture_V2</a></div><div class="ttdeci">SDL_Texture * texture_V2</div><div class="ttdef"><b>Definition:</b> Sdl.h:56</div></div>
+<div class="ttc" id="aclassSdl_html_acaeb8511bc31a9233892709bf9c33bdf"><div class="ttname"><a href="classSdl.html#acaeb8511bc31a9233892709bf9c33bdf">Sdl::Rendu</a></div><div class="ttdeci">SDL_Renderer * Rendu</div><div class="ttdef"><b>Definition:</b> Sdl.h:52</div></div>
+<div class="ttc" id="aclassSdl_html_afec3666b9222428ed46dfe6c26ec2d5e"><div class="ttname"><a href="classSdl.html#afec3666b9222428ed46dfe6c26ec2d5e">Sdl::fenetre</a></div><div class="ttdeci">SDL_Window * fenetre</div><div class="ttdef"><b>Definition:</b> Sdl.h:51</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

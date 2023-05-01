@@ -8,10 +8,19 @@ void txtAff(WinTXT & win, const Jeu & jeu)
 	win.clear();
 
     // Affichage de Voiture
-	win.print(jeu.Ptr_Voiture->Voiture_Position->getCentreX(),
-    jeu.Ptr_Voiture->Voiture_Position->getCentreY(),'P');
+	win.print((jeu.Ptr_Voiture->Voiture_Position->getX2()+jeu.Ptr_Voiture->Voiture_Position->getX1())/2,
+	(jeu.Ptr_Voiture->Voiture_Position->getY2()+jeu.Ptr_Voiture->Voiture_Position->getY1())/2,'P');
 
     // Affichage des obstacles
+	for (int i= 0; i<jeu.Obs->TailleTab_Obstacle; i++) // pour chaque case d'obstacle du tableau
+	{
+		for(int j=jeu.Obs->Tab_Obstacle[i].getX1(); j<=jeu.Obs->Tab_Obstacle[i].getX2()-jeu.Obs->Tab_Obstacle[i].getX1(); j++)
+		{
+			win.print(j, jeu.Ptr_Voiture->Voiture_Position->getY1(),'O');
+			//On affiche plusieurs caractère sur un seule même ligne dont le nbr de caractère
+			// à afficher est environ X2-X1
+		}
+	}
 	
 
 	win.draw();
